@@ -1,0 +1,57 @@
+@if (race(); as race) {
+  <article class="race-page">
+    <a class="back-link" routerLink="/" fragment="races"><span aria-hidden="true">←</span> All 2026 races</a>
+    <header class="race-hero" [style.--race-accent]="race.accent">
+      <div class="race-hero-copy">
+        <div class="race-label">{{ race.category === 'Grand Tour' ? 'THE GRAND TOURS' : 'THE FIVE MONUMENTS' }} <span>·</span> 2026</div>
+        <div class="race-date">{{ race.date }}</div>
+        <h1>{{ race.name }}</h1>
+        <p class="route">{{ race.location }} <span aria-hidden="true">↗</span></p>
+        <div class="race-facts">
+          <div><span>DISTANCE</span><strong>{{ race.distance }}</strong></div>
+          <div><span>FORMAT</span><strong>{{ race.stages }}</strong></div>
+          <div><span>FINISH</span><strong>{{ race.location.split(' · ')[1] }}</strong></div>
+        </div>
+      </div>
+      <div class="race-hero-art" aria-hidden="true">
+        <svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid meet">
+          <path d="M0 264 92 180l45 33 103-122 57 69 79-111 39 66 37-42 108 117v130H0Z" fill="#2b5140" />
+          <path d="m157 213 83-122 57 69-28-12-23 20-23-7-18 23-17-3-22 29-15-3Z" fill="#bac9ab" opacity=".76" />
+          <path d="m297 160 79-111 39 66-21-13-18 17-19-6-18 22-17-2-13 23-12-5Z" fill="#e0dfc9" opacity=".75" />
+          <path d="M13 246c77-48 109 27 175-9s125 24 184-4 99 17 175-50" fill="none" stroke="var(--race-accent)" stroke-width="2" stroke-dasharray="5 7" />
+          <circle cx="13" cy="246" r="4" fill="var(--race-accent)" />
+          <circle cx="547" cy="183" r="4" fill="var(--race-accent)" />
+        </svg>
+        <span class="distance-stamp">{{ race.distance }}<small>ON THE ROAD</small></span>
+      </div>
+    </header>
+
+    <section class="results-section" aria-labelledby="results-heading">
+      <div class="results-intro">
+        <div>
+          <div class="section-kicker">THE FINISH LINE</div>
+          <h2 id="results-heading">Final classification</h2>
+        </div>
+        <p>Top ten · General classification</p>
+      </div>
+      <app-race-results [results]="race.results" />
+      <div class="source-note">
+        <span>RESULTS SOURCE</span>
+        <a [href]="race.sourceUrl" target="_blank" rel="noreferrer">Full {{ race.name }} results at source ↗</a>
+      </div>
+    </section>
+
+    <aside class="race-winner">
+      <div class="winner-mark" aria-hidden="true">01</div>
+      <div><span>THE 2026 WINNER</span><strong>{{ race.winner }}</strong></div>
+      <a [routerLink]="['/riders', riderSlug(race.winner)]">View rider ↗</a>
+    </aside>
+  </article>
+} @else {
+  <section class="not-found">
+    <div class="section-kicker">RACE NOT FOUND</div>
+    <h1>This stage isn't on the route.</h1>
+    <p>Try another race from the 2026 season archive.</p>
+    <a routerLink="/" fragment="races">Back to all races ↗</a>
+  </section>
+}

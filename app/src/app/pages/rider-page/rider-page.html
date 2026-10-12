@@ -1,0 +1,70 @@
+@if (profile(); as profile) {
+  <article class="rider-profile-page">
+    <a class="back-link" routerLink="/" fragment="rankings"><span aria-hidden="true">←</span> Back to the rankings</a>
+    <section class="profile-hero" aria-labelledby="profile-name">
+      <div class="profile-avatar" [class.outside-ranking]="!profile.ranked" aria-hidden="true">{{ initials(profile.displayName) }}</div>
+      <div class="profile-copy">
+        <div class="profile-overline">{{ profile.ranked ? 'UCI WORLD RANKING · 2026' : '2026 RACE FINISHER' }}</div>
+        <h1 id="profile-name">{{ profile.displayName }}</h1>
+        <p>{{ profile.rider?.team ?? 'Race result profile · team and nationality not in the top 25 snapshot' }}</p>
+        @if (profile.rider; as rider) {
+          <div class="profile-tags">
+            <span>{{ rider.nationality }}</span>
+            <span>{{ rider.specialty }}</span>
+          </div>
+        }
+      </div>
+      <div class="ranking-number">
+        @if (profile.rider; as rider) {
+          <span>WORLD RANK</span>
+          <strong>#{{ rider.rank.toString().padStart(2, '0') }}</strong>
+        } @else {
+          <span>RANKING</span>
+          <strong>—</strong>
+        }
+      </div>
+    </section>
+
+    <section class="profile-stats" aria-label="Rider season statistics">
+      <div><span>2026 TOP-TEN FINISHES</span><strong>{{ results().length.toString().padStart(2, '0') }}</strong></div>
+      <div><span>PODIUM FINISHES</span><strong>{{ podiums().toString().padStart(2, '0') }}</strong></div>
+      <div><span>SEASON SNAPSHOT</span><strong>{{ rankingDate }}</strong></div>
+    </section>
+
+    <section class="results-section" aria-labelledby="results-heading">
+      <div class="section-heading">
+        <div>
+          <div class="profile-overline">SEASON FORM</div>
+          <h2 id="results-heading">Results that matter.</h2>
+        </div>
+        <a [href]="rankingSource" target="_blank" rel="noreferrer">UCI ranking source ↗</a>
+      </div>
+
+      @if (results().length) {
+        <div class="profile-results">
+          @for (result of results(); track result.raceSlug) {
+            <a class="result-item" [routerLink]="['/races', result.raceSlug]">
+              <span class="result-date">{{ result.date }}</span>
+              <span class="result-main">
+                <strong>{{ result.raceName }}</strong>
+                <small>{{ result.category }} · 2026</small>
+              </span>
+              <span class="result-position" [class.podium]="result.position <= 3">#{{ result.position.toString().padStart(2, '0') }}</span>
+              <span class="result-time">{{ result.time }}</span>
+              <span class="result-arrow" aria-hidden="true">↗</span>
+            </a>
+          }
+        </div>
+      } @else {
+        <div class="empty-results">No top-ten finishes in the 2026 race archive yet.</div>
+      }
+      <p class="profile-footnote">Race placings are from the published top-ten classifications; rankings are a separate UCI season snapshot.</p>
+    </section>
+  </article>
+} @else {
+  <section class="not-found">
+    <div class="profile-overline">RIDER NOT FOUND</div>
+    <h1>No rider by that name in this season's archive.</h1>
+    <a routerLink="/" fragment="rankings">Back to the top 25 ↗</a>
+  </section>
+}

@@ -1,6 +1,26 @@
-import type { Preview } from '@storybook/angular-vite';
+import { applicationConfig, type Preview } from '@storybook/angular-vite';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withInMemoryScrolling,
+} from '@angular/router';
+import { routes } from '../src/app/app.routes';
 
 const preview: Preview = {
+  decorators: [
+    applicationConfig({
+      providers: [
+        provideRouter(
+          routes,
+          withComponentInputBinding(),
+          withInMemoryScrolling({
+            anchorScrolling: 'enabled',
+            scrollPositionRestoration: 'enabled',
+          }),
+        ),
+      ],
+    }),
+  ],
   parameters: {
     controls: {
       matchers: {

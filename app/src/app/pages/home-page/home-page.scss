@@ -1,0 +1,500 @@
+.home-page {
+  padding-top: 28px;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 436px;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: 17px;
+  background: var(--forest-deep);
+  color: #f7f5ed;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  padding: 48px 0 64px 58px;
+}
+
+.season-label,
+.hero-footnote,
+.hero-stats span {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .13em;
+}
+
+.season-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #b7c5b9;
+}
+
+.season-label span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e5a76d;
+}
+
+h1 {
+  margin: 22px 0 15px;
+  font-family: var(--display);
+  font-size: clamp(48px, 5.2vw, 72px);
+  font-weight: 500;
+  letter-spacing: -.075em;
+  line-height: .98;
+}
+
+h1 em {
+  color: #e4a56b;
+  font-style: normal;
+}
+
+.hero-copy p {
+  max-width: 390px;
+  margin: 0;
+  color: #bdc9bd;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.hero-button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 17px;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: #f0aa70;
+  color: #24372c;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .15s ease;
+}
+
+.hero-button:hover {
+  background: #ffc28d;
+}
+
+.hero-button span {
+  font-size: 15px;
+}
+
+.hero-footnote {
+  color: #aebdaf;
+  font-size: 8px;
+}
+
+.hero-art {
+  position: relative;
+  min-width: 0;
+  align-self: stretch;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 58% 36%, #436756 0%, #254a3a 43%, transparent 75%);
+}
+
+.hero-art::after {
+  position: absolute;
+  right: -8%;
+  bottom: -1px;
+  left: -8%;
+  height: 45%;
+  background: linear-gradient(0deg, #153a2e, transparent);
+  content: '';
+}
+
+.hero-sun {
+  position: absolute;
+  top: 58px;
+  right: 23%;
+  width: 124px;
+  height: 124px;
+  border: 1px solid rgb(244 199 141 / 28%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(234 184 126 / 38%), rgb(234 184 126 / 3%) 72%);
+}
+
+.hero-contour {
+  position: absolute;
+  width: 120%;
+  height: 80%;
+  border: 1px solid rgb(183 202 176 / 14%);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+}
+
+.contour-one {
+  top: 18%;
+  left: -10%;
+}
+
+.contour-two {
+  top: 25%;
+  left: -15%;
+}
+
+.mountain-art {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 83%;
+}
+
+.hero-stamp {
+  position: absolute;
+  z-index: 2;
+  top: 34px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #d4dfd2;
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: .15em;
+  opacity: .8;
+}
+
+.hero-stamp strong {
+  color: #f2b47f;
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: .04em;
+  line-height: 1;
+  text-align: center;
+}
+
+.hero-stats {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 67px;
+  align-items: center;
+  gap: 35px;
+  padding: 0 58px;
+  border-top: 1px solid rgb(255 255 255 / 13%);
+  background: rgb(10 36 27 / 28%);
+}
+
+.hero-stats div {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.hero-stats strong {
+  color: #f2b47f;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.hero-stats span {
+  color: #bdc9bd;
+  font-size: 8px;
+}
+
+.rankings-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(380px, 1.08fr);
+  align-items: start;
+  gap: clamp(38px, 8vw, 112px);
+  padding: 91px 7.2% 100px;
+  scroll-margin-top: 24px;
+}
+
+.section-intro {
+  padding-top: 24px;
+}
+
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #7b8378;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .13em;
+}
+
+.section-kicker span {
+  color: #d07e53;
+}
+
+.section-intro h2,
+.races-heading h2 {
+  margin: 17px 0 9px;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(32px, 3.3vw, 44px);
+  font-weight: 500;
+  letter-spacing: -.065em;
+  line-height: 1.05;
+}
+
+.section-intro p,
+.races-heading p {
+  margin: 0;
+  color: #777f75;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ranking-source {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  color: #90968d;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .08em;
+}
+
+.ranking-source a {
+  color: #536d54;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.races-section {
+  padding: 72px 0 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 24px;
+}
+
+.races-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.races-heading h2 {
+  margin-top: 16px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #e2e4dc;
+  border-radius: 7px;
+  background: #edeFE8;
+}
+
+.filter-tabs button {
+  min-height: 31px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #6e766c;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+
+.filter-tabs button.selected {
+  background: #fff;
+  color: #294333;
+  box-shadow: 0 1px 4px rgb(31 43 32 / 12%);
+  font-weight: 700;
+}
+
+.race-group {
+  margin-top: 44px;
+}
+
+.group-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--line);
+}
+
+.group-title h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+
+.group-title span {
+  color: #8a9087;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .12em;
+}
+
+.race-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.grand-tour-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+  .rankings-section {
+    grid-template-columns: minmax(220px, .8fr) minmax(340px, 1.2fr);
+    gap: 38px;
+    padding-inline: 2%;
+  }
+
+  .race-grid,
+  .grand-tour-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .home-page {
+    padding-top: 18px;
+  }
+
+  .hero {
+    min-height: 620px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 210px;
+  }
+
+  .hero-copy {
+    align-self: start;
+    padding: 42px 28px 0;
+  }
+
+  h1 {
+    font-size: clamp(48px, 12vw, 68px);
+  }
+
+  .hero-copy p {
+    max-width: 350px;
+  }
+
+  .hero-art {
+    position: absolute;
+    right: 0;
+    bottom: 48px;
+    width: 100%;
+    height: 230px;
+    opacity: .8;
+  }
+
+  .hero-stats {
+    height: 56px;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0 20px;
+  }
+
+  .hero-stats div {
+    gap: 5px;
+  }
+
+  .hero-stats strong {
+    font-size: 16px;
+  }
+
+  .hero-stats span {
+    max-width: 74px;
+    font-size: 7px;
+    line-height: 1.4;
+  }
+
+  .rankings-section {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 58px 0 67px;
+  }
+
+  .section-intro {
+    padding-top: 0;
+  }
+
+  .races-section {
+    padding-top: 52px;
+  }
+
+  .races-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 590px;
+  }
+
+  .hero-copy {
+    padding-inline: 21px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-stats {
+    padding-inline: 14px;
+  }
+
+  .hero-stats span {
+    max-width: 63px;
+    font-size: 6px;
+  }
+
+  .races-heading h2,
+  .section-intro h2 {
+    font-size: 34px;
+  }
+
+  .filter-tabs {
+    width: 100%;
+  }
+
+  .filter-tabs button {
+    flex: 1;
+    padding-inline: 5px;
+  }
+
+  .race-grid,
+  .grand-tour-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .group-title span {
+    font-size: 7px;
+  }
+}

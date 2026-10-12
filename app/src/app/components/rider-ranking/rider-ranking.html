@@ -1,0 +1,42 @@
+<section class="ranking-panel" aria-labelledby="ranking-title">
+  <div class="panel-heading">
+    <div>
+      <div class="eyebrow">THE PELOTON · MEN'S ROAD</div>
+      <h2 id="ranking-title">World ranking</h2>
+    </div>
+    <span class="ranking-badge">TOP 25</span>
+  </div>
+
+  <label class="search-box">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.7" cy="8.7" r="5.8" /><path d="m13 13 4 4" /></svg>
+    <span class="visually-hidden">Search riders</span>
+    <input type="search" placeholder="Find a rider or team" [value]="query()" (input)="updateQuery($event)" />
+    <kbd>/</kbd>
+  </label>
+
+  <ol class="rider-list">
+    @for (rider of filteredRiders(); track rider.slug) {
+      <li>
+        <a class="rider-row" [routerLink]="['/riders', rider.slug]">
+          <span class="rank">{{ rider.rank.toString().padStart(2, '0') }}</span>
+          <span class="avatar" [class.top-three]="rider.rank <= 3" aria-hidden="true">{{ initials(rider.name) }}</span>
+          <span class="rider-copy">
+            <span class="rider-name">{{ rider.name }}</span>
+            <span class="rider-team">{{ rider.team }}</span>
+          </span>
+          <span class="nationality" [attr.aria-label]="rider.nationality">{{ rider.countryCode }}</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    } @empty {
+      <li class="empty-state">No riders match “{{ query() }}”.</li>
+    }
+  </ol>
+
+  @if (!query()) {
+    <button class="show-all" type="button" (click)="toggleAll()">
+      {{ showAll() ? 'Show top 8' : 'View all 25 riders' }}
+      <span aria-hidden="true">{{ showAll() ? '↑' : '↓' }}</span>
+    </button>
+  }
+</section>

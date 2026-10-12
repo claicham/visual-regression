@@ -1,0 +1,167 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.race-card {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  padding: 18px 20px 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.race-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--race-accent) 45%, white);
+  box-shadow: 0 12px 32px rgb(37 56 43 / 8%);
+}
+
+.card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.race-category,
+.race-date,
+.race-kicker,
+.winner-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+
+.race-category {
+  color: var(--race-accent);
+}
+
+.race-date {
+  color: #7e857b;
+}
+
+.route-art {
+  position: relative;
+  height: 72px;
+  margin: 12px -2px 13px;
+  border-bottom: 1px solid #f0f0ec;
+}
+
+.route-art svg {
+  width: 100%;
+  height: 70px;
+  overflow: visible;
+}
+
+.route-shadow,
+.route-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.route-shadow {
+  stroke: color-mix(in srgb, var(--race-accent) 18%, white);
+  stroke-width: 7;
+}
+
+.route-line {
+  stroke: var(--race-accent);
+  stroke-dasharray: 3 4;
+  stroke-width: 1.5;
+}
+
+.route-dot {
+  fill: var(--race-accent);
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.route-label {
+  position: absolute;
+  bottom: 1px;
+  color: #969a91;
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.route-label.start {
+  left: 0;
+}
+
+.route-label.finish {
+  right: 0;
+}
+
+.race-card-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.race-kicker {
+  margin-bottom: 4px;
+  color: #8d938a;
+  font-size: 8px;
+}
+
+h3 {
+  margin: 0 0 6px;
+  font-family: var(--display);
+  font-size: 19px;
+  letter-spacing: -.04em;
+}
+
+.race-distance {
+  color: #858b82;
+  font-size: 10px;
+}
+
+.card-arrow {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: #798076;
+  font-size: 12px;
+  transition: background .15s ease, color .15s ease;
+}
+
+.race-card:hover .card-arrow {
+  border-color: var(--race-accent);
+  background: var(--race-accent);
+  color: #fff;
+}
+
+.winner-line {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.winner-label {
+  color: #90968c;
+  font-size: 8px;
+}
+
+.winner-name {
+  overflow: hidden;
+  color: #39483c;
+  font-size: 10px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

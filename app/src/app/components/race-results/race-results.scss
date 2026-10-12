@@ -1,0 +1,151 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.results-table-wrap {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #fff;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  height: 39px;
+  background: #f7f7f3;
+}
+
+th {
+  color: #858b82;
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: .12em;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 20px;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 20px;
+  text-align: right;
+}
+
+tbody tr {
+  height: 49px;
+  border-top: 1px solid #eff0eb;
+}
+
+tbody tr:hover {
+  background: #fafbf8;
+}
+
+.position-column {
+  width: 75px;
+}
+
+.position-cell {
+  width: 75px;
+}
+
+.podium-medal,
+.plain-position {
+  display: inline-grid;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.podium-medal.gold {
+  background: #f6e7bc;
+  color: #946b1f;
+}
+
+.podium-medal.silver {
+  background: #e8e9e5;
+  color: #68706a;
+}
+
+.podium-medal.bronze {
+  background: #f2e2d6;
+  color: #9b6545;
+}
+
+.plain-position {
+  color: #8d938b;
+  font-size: 9px;
+}
+
+.name-cell a {
+  color: #26392e;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.name-cell a:hover {
+  color: #a2532e;
+  text-decoration: underline;
+}
+
+.winner-pill {
+  display: inline-block;
+  margin-left: 9px;
+  padding: 4px 6px;
+  border-radius: 3px;
+  background: #eef3e9;
+  color: #5f7952;
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: .08em;
+  vertical-align: 1px;
+}
+
+.time-cell {
+  color: #777f75;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  th:first-child,
+  td:first-child {
+    padding-left: 12px;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: 12px;
+  }
+
+  .position-column,
+  .position-cell {
+    width: 54px;
+  }
+
+  .name-cell a {
+    font-size: 11px;
+  }
+}

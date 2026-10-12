@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+.app-main {
+  width: min(1360px, calc(100% - 64px));
+  min-height: calc(100vh - 150px);
+  margin: 0 auto;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(1360px, calc(100% - 64px));
+  margin: 64px auto 0;
+  padding: 24px 0 30px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.site-footer span:first-child {
+  color: var(--forest);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.site-footer a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .app-main,
+  .site-footer {
+    width: min(100% - 36px, 1360px);
+  }
+
+  .site-footer {
+    flex-wrap: wrap;
+  }
+}

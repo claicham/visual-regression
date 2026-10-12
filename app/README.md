@@ -1,59 +1,33 @@
-# App
+# The Peloton Index
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+A small Angular component showcase and routed 2026 men's road-cycling season archive. The app includes a UCI rider ranking snapshot, rider profiles, race sections and a top-ten results page for each featured event.
 
-## Development server
-
-To start a local development server, run:
+## Run locally
 
 ```bash
-ng serve
+pnpm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:4200/`. Rider profiles use `/riders/:slug`; race results use `/races/:slug`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Storybook
 
 ```bash
-ng generate component component-name
+pnpm storybook
+pnpm build-storybook
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Stories live beside their Angular components in `src/app`. The catalogue includes the application shell, season overview, navigation, rider ranking, race cards, race results, rider profiles and race detail pages. Interactions such as searching/filtering and route links can be exercised in the browser.
+
+## Data and sources
+
+The rider list is the UCI men's road world-ranking snapshot dated 5 October 2026. Race results are the published final top-ten classifications for the 2026 Giro d'Italia, Tour de France, Vuelta a España, and the five Monuments. Source links are available from the ranking and each race detail page.
+
+The season dataset is kept in `src/app/cycling-data.ts` so it is easy to update or replace for visual-regression scenarios. The ranking is a dated snapshot, while race pages link to their underlying result source.
+
+## Validation
 
 ```bash
-ng generate --help
+pnpm test
+pnpm build
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

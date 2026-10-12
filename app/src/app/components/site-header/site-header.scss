@@ -1,0 +1,106 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  background: var(--forest-deep);
+  color: #f4f4ef;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1360px, calc(100% - 64px));
+  height: 76px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  color: var(--orange);
+}
+
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-light {
+  color: #b9cbbd;
+  font-weight: 400;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  height: 100%;
+}
+
+nav a {
+  display: grid;
+  height: 100%;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  color: #b6c2b9;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color .15s ease, border-color .15s ease;
+}
+
+nav a:hover,
+nav a.active {
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.season {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #c2d0c5;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .09em;
+}
+
+.season span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a5c56b;
+  box-shadow: 0 0 0 4px rgb(165 197 107 / 12%);
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    width: calc(100% - 36px);
+    height: 66px;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .season {
+    display: none;
+  }
+}

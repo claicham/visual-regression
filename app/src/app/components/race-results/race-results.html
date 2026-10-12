@@ -1,0 +1,32 @@
+<div class="results-table-wrap">
+  <table class="results-table">
+    <caption class="visually-hidden">Final general classification, top ten</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="position-column">POS.</th>
+        <th scope="col">RIDER</th>
+        <th scope="col" class="time-column">TIME GAP</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (result of results(); track result.rank) {
+        <tr [class.podium-row]="result.rank <= 3">
+          <td class="position-cell">
+            @if (result.rank <= 3) {
+              <span class="podium-medal" [class.gold]="result.rank === 1" [class.silver]="result.rank === 2" [class.bronze]="result.rank === 3">{{ result.rank }}</span>
+            } @else {
+              <span class="plain-position">{{ result.rank.toString().padStart(2, '0') }}</span>
+            }
+          </td>
+          <td class="name-cell">
+            <a [routerLink]="['/riders', slug(result.rider)]">{{ result.rider }}</a>
+            @if (result.rank === 1) {
+              <span class="winner-pill">WINNER</span>
+            }
+          </td>
+          <td class="time-cell">{{ result.time }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
