@@ -7,7 +7,6 @@ import {
   rankingDate,
   rankingSource,
   toSlug,
-  type Rider,
 } from '../../cycling-data';
 
 interface ProfileResult {
@@ -49,11 +48,6 @@ export class RiderPage {
       : undefined;
   });
   protected readonly results = computed<ProfileResult[]>(() => {
-    const riderName = this.profile()?.displayName;
-    if (!riderName) {
-      return [];
-    }
-
     return races.flatMap((race) => {
       const result = race.results.find(
         (entry) => toSlug(entry.rider) === this.slug(),
@@ -77,9 +71,5 @@ export class RiderPage {
 
   protected initials(name: string): string {
     return getInitials(name);
-  }
-
-  protected riderTeam(rider: Rider | null): string {
-    return rider?.team ?? 'Not listed in the top 25 ranking';
   }
 }

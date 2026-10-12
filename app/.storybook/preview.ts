@@ -5,6 +5,7 @@ import {
   withInMemoryScrolling,
 } from '@angular/router';
 import { routes } from '../src/app/app.routes';
+import '../src/styles.scss';
 
 const preview: Preview = {
   decorators: [

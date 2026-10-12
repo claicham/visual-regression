@@ -24,10 +24,8 @@ export class RiderRankingComponent {
     return getInitials(name);
   }
 
-  protected updateQuery(event: Event): void {
-    if (event.target instanceof HTMLInputElement) {
-      this.query.set(event.target.value);
-    }
+  protected updateQuery(value: string): void {
+    this.query.set(value);
   }
 
   protected toggleAll(): void {

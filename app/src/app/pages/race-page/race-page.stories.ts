@@ -13,3 +13,4 @@ type Story = StoryObj<RacePage>;
 
 export const TourDeFrance: Story = { args: { slug: 'tour-de-france' } };
 export const Monument: Story = { args: { slug: 'paris-roubaix' } };
+export const NotFound: Story = { args: { slug: 'unknown-race' } };

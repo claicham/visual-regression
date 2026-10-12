@@ -10,8 +10,8 @@
   <label class="search-box">
     <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.7" cy="8.7" r="5.8" /><path d="m13 13 4 4" /></svg>
     <span class="visually-hidden">Search riders</span>
-    <input type="search" placeholder="Find a rider or team" [value]="query()" (input)="updateQuery($event)" />
-    <kbd>/</kbd>
+    <input #searchInput type="search" placeholder="Find a rider or team" [value]="query()" (input)="updateQuery(searchInput.value)" />
+    <kbd aria-hidden="true">/</kbd>
   </label>
 
   <ol class="rider-list">
@@ -33,9 +33,9 @@
     }
   </ol>
 
-  @if (!query()) {
+  @if (!query() && riders().length > 8) {
     <button class="show-all" type="button" (click)="toggleAll()">
-      {{ showAll() ? 'Show top 8' : 'View all 25 riders' }}
+      {{ showAll() ? 'Show top 8' : 'View all ' + riders().length + ' riders' }}
       <span aria-hidden="true">{{ showAll() ? '↑' : '↓' }}</span>
     </button>
   }
