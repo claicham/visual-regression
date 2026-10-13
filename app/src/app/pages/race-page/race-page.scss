@@ -1,14 +1,14 @@
 .race-page {
-  padding-top: 26px;
+  padding-top: 1.625rem;
 }
 
 .back-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 18px;
-  color: #697369;
-  font-size: 11px;
+  gap: 0.5rem;
+  margin-bottom: 1.125rem;
+  color: #626a62;
+  font-size: 0.6875rem;
   text-decoration: none;
 }
 
@@ -17,16 +17,16 @@
 }
 
 .back-link span {
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .race-hero {
   position: relative;
   display: grid;
-  min-height: 335px;
-  grid-template-columns: 1.05fr .95fr;
+  min-height: 20.9375rem;
+  grid-template-columns: 1.05fr 0.95fr;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   background: var(--forest-deep);
   color: #f7f5ed;
 }
@@ -34,7 +34,7 @@
 .race-hero-copy {
   position: relative;
   z-index: 1;
-  padding: 34px 0 26px 42px;
+  padding: 2.125rem 0 1.625rem 2.625rem;
 }
 
 .race-label,
@@ -44,8 +44,8 @@
 .source-note > span,
 .race-winner > div:nth-child(2) > span {
   font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: .13em;
+  font-size: 0.625rem;
+  letter-spacing: 0.13em;
 }
 
 .race-label {
@@ -53,57 +53,57 @@
 }
 
 .race-label span {
-  padding: 0 5px;
-  color: var(--race-accent);
+  padding: 0 0.3125rem;
+  color: #b8c6b8;
 }
 
 .race-date {
-  margin-top: 29px;
-  color: var(--race-accent);
+  margin-top: 1.8125rem;
+  color: #f7f5ed;
 }
 
 .race-hero h1 {
-  margin: 6px 0 5px;
+  margin: 0.375rem 0 0.3125rem;
   font-family: var(--display);
-  font-size: clamp(40px, 5vw, 60px);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 500;
-  letter-spacing: -.07em;
+  letter-spacing: -0.07em;
   line-height: 1.05;
 }
 
 .route {
   margin: 0;
   color: #c4d0c3;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 .route span {
-  padding-left: 5px;
+  padding-left: 0.3125rem;
   color: var(--race-accent);
 }
 
 .race-facts {
   display: flex;
-  gap: clamp(20px, 4vw, 45px);
-  margin-top: 33px;
-  padding-top: 16px;
-  border-top: 1px solid rgb(255 255 255 / 15%);
+  gap: clamp(1.25rem, 4vw, 2.8125rem);
+  margin-top: 2.0625rem;
+  padding-top: 1rem;
+  border-top: 0.0625rem solid rgb(255 255 255 / 15%);
 }
 
 .race-facts div {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .race-facts span {
   color: #9eafa1;
-  font-size: 7px;
+  font-size: 0.625rem;
 }
 
 .race-facts strong {
   color: #f5f5ed;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 500;
 }
 
@@ -124,164 +124,164 @@
 
 .distance-stamp {
   position: absolute;
-  right: 26px;
-  bottom: 23px;
+  right: 1.625rem;
+  bottom: 1.4375rem;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 0.1875rem;
   color: #efb078;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .1em;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
 }
 
 .distance-stamp small {
   color: #b7c6b8;
-  font-size: 7px;
+  font-size: 0.625rem;
 }
 
 .results-section {
-  max-width: 900px;
-  margin: 67px auto 0;
+  max-width: 56.25rem;
+  margin: 4.1875rem auto 0;
 }
 
 .results-intro {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 16px;
+  gap: 1.125rem;
+  margin-bottom: 1rem;
 }
 
 .section-kicker {
-  color: #879086;
+  color: #626a62;
 }
 
 .results-intro h2 {
-  margin: 7px 0 0;
+  margin: 0.4375rem 0 0;
   color: var(--ink);
   font-family: var(--display);
-  font-size: 29px;
+  font-size: 1.8125rem;
   font-weight: 500;
-  letter-spacing: -.06em;
+  letter-spacing: -0.06em;
 }
 
 .results-intro p {
-  margin: 0 0 3px;
-  color: #7d857a;
-  font-size: 10px;
+  margin: 0 0 0.1875rem;
+  color: #626a62;
+  font-size: 0.625rem;
 }
 
 .source-note {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  margin-top: 12px;
-  color: #8b9188;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  color: #626a62;
 }
 
 .source-note > span {
-  font-size: 7px;
+  font-size: 0.625rem;
 }
 
 .source-note a {
   color: #536d54;
-  font-size: 10px;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  font-size: 0.625rem;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.1875rem;
 }
 
 .race-winner {
   display: flex;
-  max-width: 900px;
+  max-width: 56.25rem;
   align-items: center;
-  gap: 16px;
-  margin: 30px auto 0;
-  padding: 17px 20px;
-  border: 1px solid #e5e7df;
-  border-radius: 9px;
+  gap: 1rem;
+  margin: 1.875rem auto 0;
+  padding: 1.0625rem 1.25rem;
+  border: 0.0625rem solid #e5e7df;
+  border-radius: 0.5625rem;
   background: #eef1e9;
 }
 
 .winner-mark {
   display: grid;
-  width: 38px;
-  height: 38px;
-  flex: 0 0 38px;
+  width: 2.375rem;
+  height: 2.375rem;
+  flex: 0 0 2.375rem;
   place-items: center;
   border-radius: 50%;
   background: #e7d9bd;
-  color: #856738;
+  color: #363934;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 
 .race-winner > div:nth-child(2) {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .race-winner > div:nth-child(2) > span {
-  color: #798477;
-  font-size: 7px;
+  color: #626a62;
+  font-size: 0.625rem;
 }
 
 .race-winner strong {
   color: #293c2f;
   font-family: var(--display);
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .race-winner a {
   color: #536d54;
-  font-size: 10px;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  font-size: 0.625rem;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.1875rem;
 }
 
 .not-found {
-  padding: 110px 0;
+  padding: 6.875rem 0;
   text-align: center;
 }
 
 .not-found h1 {
-  margin: 16px 0 9px;
+  margin: 1rem 0 0.5625rem;
   font-family: var(--display);
-  font-size: clamp(36px, 7vw, 55px);
-  letter-spacing: -.07em;
+  font-size: clamp(2.25rem, 7vw, 3.4375rem);
+  letter-spacing: -0.07em;
 }
 
 .not-found p {
-  margin: 0 0 18px;
-  color: #777f75;
-  font-size: 13px;
+  margin: 0 0 1.125rem;
+  color: #626a62;
+  font-size: 0.8125rem;
 }
 
 .not-found a {
   color: #536d54;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 45rem) {
   .race-hero {
-    min-height: 430px;
+    min-height: 26.875rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 145px;
+    grid-template-rows: 1fr 9.0625rem;
   }
 
   .race-hero-copy {
-    padding: 27px 22px 20px;
+    padding: 1.6875rem 1.375rem 1.25rem;
   }
 
   .race-date {
-    margin-top: 21px;
+    margin-top: 1.3125rem;
   }
 
   .race-facts {
-    gap: 25px;
-    margin-top: 23px;
+    gap: 1.5625rem;
+    margin-top: 1.4375rem;
   }
 
   .race-hero-art {
@@ -289,8 +289,8 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 172px;
-    opacity: .65;
+    height: 10.75rem;
+    opacity: 0.65;
   }
 
   .race-facts {
@@ -299,40 +299,40 @@
   }
 
   .distance-stamp {
-    right: 18px;
-    bottom: 13px;
+    right: 1.125rem;
+    bottom: 0.8125rem;
   }
 
   .results-section {
-    margin-top: 49px;
+    margin-top: 3.0625rem;
   }
 
   .results-intro {
     align-items: flex-start;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.3125rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .race-hero h1 {
-    font-size: 39px;
+    font-size: 2.4375rem;
   }
 
   .race-facts {
-    gap: 15px;
+    gap: 0.9375rem;
   }
 
   .race-facts strong {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
 
   .race-winner {
-    gap: 10px;
-    padding: 13px;
+    gap: 0.625rem;
+    padding: 0.8125rem;
   }
 
   .race-winner a {
-    font-size: 9px;
+    font-size: 0.625rem;
   }
 }

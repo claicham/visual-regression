@@ -11,26 +11,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: min(1360px, calc(100% - 64px));
-  height: 76px;
+  width: min(85rem, calc(100% - 4rem));
+  height: 4.75rem;
   margin: 0 auto;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   font-family: var(--display);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   text-decoration: none;
 }
 
 .brand-mark {
   display: flex;
-  width: 34px;
-  height: 34px;
+  width: 2.125rem;
+  height: 2.125rem;
   color: var(--orange);
 }
 
@@ -47,7 +47,7 @@
 nav {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 2.25rem;
   height: 100%;
 }
 
@@ -55,11 +55,13 @@ nav a {
   display: grid;
   height: 100%;
   align-items: center;
-  border-bottom: 2px solid transparent;
+  border-bottom: 0.125rem solid transparent;
   color: #b6c2b9;
-  font-size: 13px;
+  font-size: 0.8125rem;
   text-decoration: none;
-  transition: color .15s ease, border-color .15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 nav a:hover,
@@ -71,33 +73,33 @@ nav a.active {
 .season {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 0.5625rem;
   color: #c2d0c5;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .09em;
+  font-size: 0.625rem;
+  letter-spacing: 0.09em;
 }
 
 .season span {
-  width: 7px;
-  height: 7px;
+  width: 0.4375rem;
+  height: 0.4375rem;
   border-radius: 50%;
   background: #a5c56b;
-  box-shadow: 0 0 0 4px rgb(165 197 107 / 12%);
+  box-shadow: 0 0 0 0.25rem rgb(165 197 107 / 12%);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 40rem) {
   .header-inner {
-    width: calc(100% - 36px);
-    height: 66px;
+    width: calc(100% - 2.25rem);
+    height: 4.125rem;
   }
 
   nav {
-    gap: 16px;
+    gap: 1rem;
   }
 
   nav a {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .season {

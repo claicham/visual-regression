@@ -1,16 +1,28 @@
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" routerLink="/" aria-label="Peloton Index home">
+    <a class="brand" routerLink="/">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 30 30" fill="none">
           <circle cx="15" cy="15" r="12" stroke="currentColor" stroke-width="1.5" />
-          <path d="M7 17.5h5.3l2.1-6 3.1 8.2 2.1-5H23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M7 17.5h5.3l2.1-6 3.1 8.2 2.1-5H23"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </span>
       <span>PELOTON<span class="brand-light">INDEX</span></span>
     </a>
     <nav aria-label="Main navigation">
-      <a routerLink="/" fragment="rankings" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Riders</a>
+      <a
+        routerLink="/"
+        fragment="rankings"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }"
+        >Riders</a
+      >
       <a routerLink="/" fragment="races">Race calendar</a>
     </nav>
     <div class="season"><span aria-hidden="true"></span> 2026 SEASON</div>

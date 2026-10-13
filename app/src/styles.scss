@@ -14,7 +14,7 @@
   --forest-deep: #102c23;
   --moss: #dfe8d9;
   --paper: #f4f4ef;
-  --muted: #747c74;
+  --muted: #626a62;
   --orange: #f3a66c;
   --line: #e7e8e0;
   --mono: 'DM Mono', monospace;
@@ -26,12 +26,12 @@
 }
 
 html {
-  min-width: 320px;
+  min-width: 20rem;
   scroll-behavior: smooth;
 }
 
 body {
-  min-width: 320px;
+  min-width: 20rem;
   margin: 0;
 }
 
@@ -52,8 +52,8 @@ a {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 3px solid #df8552;
-  outline-offset: 3px;
+  outline: 0.1875rem solid #df8552;
+  outline-offset: 0.1875rem;
 }
 
 ::selection {
