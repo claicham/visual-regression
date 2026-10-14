@@ -122,6 +122,15 @@
   height: 100%;
 }
 
+@media (min-width: 64rem) {
+  .race-hero-art svg {
+    width: 108%;
+    height: 108%;
+    right: -4%;
+    bottom: -4%;
+  }
+}
+
 .art-land {
   fill: #2b5140;
 }
