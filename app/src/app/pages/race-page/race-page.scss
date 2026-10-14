@@ -122,6 +122,72 @@
   height: 100%;
 }
 
+.art-land {
+  fill: #2b5140;
+}
+
+.art-ridge {
+  fill: #234735;
+}
+
+.art-snow {
+  fill: #e0dfc9;
+  opacity: 0.78;
+}
+
+.art-route {
+  fill: none;
+  stroke: var(--race-accent);
+  stroke-dasharray: 5 7;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.art-skyline {
+  fill: #47735f;
+}
+
+.art-sea,
+.art-lake {
+  fill: #276274;
+}
+
+.art-cobbles {
+  fill: #80654e;
+}
+
+.art-pave {
+  fill: #5d6155;
+}
+
+.art-forest {
+  fill: #264938;
+}
+
+.art-leaves {
+  fill: #b58446;
+}
+
+.scene-riviera {
+  background: radial-gradient(ellipse at 55% 38%, #7095a3, #204c58 68%, transparent 78%);
+}
+
+.scene-flanders {
+  background: radial-gradient(ellipse at 53% 40%, #6c7c4f, #334d30 70%, transparent 80%);
+}
+
+.scene-roubaix {
+  background: radial-gradient(ellipse at 53% 40%, #65735d, #293b2e 70%, transparent 80%);
+}
+
+.scene-ardennes {
+  background: radial-gradient(ellipse at 55% 42%, #6b7957, #354936 70%, transparent 80%);
+}
+
+.scene-lombardia {
+  background: radial-gradient(ellipse at 55% 42%, #657d59, #304b38 70%, transparent 80%);
+}
+
 .distance-stamp {
   position: absolute;
   right: 1.625rem;

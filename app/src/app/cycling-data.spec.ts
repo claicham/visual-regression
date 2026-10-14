@@ -21,6 +21,8 @@ describe('cycling season data', () => {
       );
       expect(race.results[0].rider).toBe(race.winner);
       expect(race.sourceUrl.startsWith('https://')).toBe(true);
+      expect(race.artwork.feature).not.toBe('');
+      expect(race.artwork.detail).not.toBe('');
     }
   });
 

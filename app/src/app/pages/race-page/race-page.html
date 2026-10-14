@@ -1,28 +1,157 @@
 @if (race(); as race) {
   <article class="race-page">
-    <a class="back-link" routerLink="/" fragment="races"><span aria-hidden="true">←</span> All 2026 races</a>
+    <a class="back-link" routerLink="/" fragment="races"
+      ><span aria-hidden="true">←</span> All 2026 races</a
+    >
     <header class="race-hero" [style.--race-accent]="race.accent">
       <div class="race-hero-copy">
-        <div class="race-label">{{ race.category === 'Grand Tour' ? 'THE GRAND TOURS' : 'THE FIVE MONUMENTS' }} <span>·</span> 2026</div>
+        <div class="race-label">
+          {{ race.category === 'Grand Tour' ? 'THE GRAND TOURS' : 'THE FIVE MONUMENTS' }}
+          <span>·</span> 2026
+        </div>
         <div class="race-date">{{ race.date }}</div>
         <h1>{{ race.name }}</h1>
         <p class="route">{{ race.location }} <span aria-hidden="true">↗</span></p>
         <div class="race-facts">
-          <div><span>DISTANCE</span><strong>{{ race.distance }}</strong></div>
-          <div><span>FORMAT</span><strong>{{ race.stages }}</strong></div>
-          <div><span>FINISH</span><strong>{{ race.location.split(' · ')[1] }}</strong></div>
+          <div>
+            <span>DISTANCE</span><strong>{{ race.distance }}</strong>
+          </div>
+          <div>
+            <span>FORMAT</span><strong>{{ race.stages }}</strong>
+          </div>
+          <div>
+            <span>FINISH</span><strong>{{ race.location.split(' · ')[1] }}</strong>
+          </div>
         </div>
       </div>
-      <div class="race-hero-art" aria-hidden="true">
+      <div
+        class="race-hero-art"
+        [class]="'race-hero-art scene-' + race.artwork.scene"
+        aria-hidden="true"
+      >
         <svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid meet">
-          <path d="M0 264 92 180l45 33 103-122 57 69 79-111 39 66 37-42 108 117v130H0Z" fill="#2b5140" />
-          <path d="m157 213 83-122 57 69-28-12-23 20-23-7-18 23-17-3-22 29-15-3Z" fill="#bac9ab" opacity=".76" />
-          <path d="m297 160 79-111 39 66-21-13-18 17-19-6-18 22-17-2-13 23-12-5Z" fill="#e0dfc9" opacity=".75" />
-          <path d="M13 246c77-48 109 27 175-9s125 24 184-4 99 17 175-50" fill="none" stroke="var(--race-accent)" stroke-width="2" stroke-dasharray="5 7" />
-          <circle cx="13" cy="246" r="4" fill="var(--race-accent)" />
-          <circle cx="547" cy="183" r="4" fill="var(--race-accent)" />
+          @switch (race.artwork.scene) {
+            @case ('stelvio') {
+              <path
+                class="art-land"
+                d="M0 320V214L82 167l43 22 62-86 45 67 58-129 53 98 37-58 66 110 114-50v169Z"
+              />
+              <path
+                class="art-snow"
+                d="m187 103 45 67-31-14-20 18-16-20-25 15ZM290 41l53 98-36-26-24 23-19-29-32 20Z"
+              />
+              <path
+                class="art-route"
+                d="M28 270c58-15 50-41 102-53 47-11 16-42 67-59 39-13 18-50 75-72 39-15 34 11 70-7 42-21 22-51 73-60 39-7 58 18 130-18"
+              />
+            }
+            @case ('tourmalet') {
+              <path
+                class="art-land"
+                d="M0 320V238l76-52 58 31 69-103 55 77 75-137 63 114 44-43 120 82v113Z"
+              />
+              <path
+                class="art-snow"
+                d="m203 114 55 77-31-17-25 20-19-28-29 17ZM333 54l63 114-37-31-26 24-22-34-37 18Z"
+              />
+              <path
+                class="art-route"
+                d="M17 283c65-46 92-20 135-55 34-28 27-71 72-72 53-2 37-50 90-76 56-27 53 39 95 13 35-22 43 3 61 10 27 10 49-1 73-21"
+              />
+            }
+            @case ('angliru') {
+              <path
+                class="art-land"
+                d="M0 320V247l68-26 53 16 69-56 56 24 71-110 55 60 57-98 131 161v102Z"
+              />
+              <path
+                class="art-ridge"
+                d="M0 270c62-21 119 12 178-27s79 10 132-42 80 9 123-39 70 17 127-30v188H0Z"
+              />
+              <path
+                class="art-route"
+                d="M14 281c61-5 77-46 126-37 43 8 31-45 72-36 56 12 35-73 94-64 46 7 24-73 82-69 41 3 30-41 76-37 38 3 42 10 81-3"
+              />
+            }
+            @case ('riviera') {
+              <path
+                class="art-skyline"
+                d="M0 129 53 97l37 22 39-47 61 61 62-33 55 31 52-55 59 53 42-23 100 50v164H0Z"
+              />
+              <path
+                class="art-sea"
+                d="M0 182c80-26 132 10 207-4s124 24 201-2 100 2 152-17v161H0Z"
+              />
+              <path
+                class="art-route"
+                d="M10 148c56 10 77-36 119-23 37 12 46-31 85-16 49 19 57-18 99-2 41 16 62-27 103-12 42 16 41-14 70-6 32 9 35 2 64 22"
+              />
+            }
+            @case ('flanders') {
+              <path
+                class="art-land"
+                d="M0 320V208l74-43 60 32 64-73 64 62 59-43 69 56 57-26 113 61v86Z"
+              />
+              <path
+                class="art-cobbles"
+                d="M0 260c87-35 141 15 224-24s145 21 213-16c52-28 77 4 123-16v116H0Z"
+              />
+              <path
+                class="art-route"
+                d="M11 267c40-6 56-47 94-33 35 14 45-71 88-65 41 6 38-58 79-37 34 17 60-24 99-12 45 15 45 42 84 30 41-14 48 22 94 11"
+              />
+            }
+            @case ('roubaix') {
+              <path
+                class="art-forest"
+                d="M0 0h560v229c-49-19-91 4-139-15-52-21-92 8-143-8-52-17-85 9-135-6-49-14-93 22-143-7Z"
+              />
+              <path
+                class="art-pave"
+                d="M0 320V226c73-37 136-16 203-6 85 13 133-7 195 8 72 18 103-10 162-4v96Z"
+              />
+              <path
+                class="art-route"
+                d="M0 252c53-12 91-8 138 2 59 13 104-18 157-1 61 19 113-19 159-3 40 14 73-4 106-1"
+              />
+            }
+            @case ('ardennes') {
+              <path
+                class="art-land"
+                d="M0 320V241l64-53 57 33 71-84 63 64 61-72 65 55 51-41 128 79v98Z"
+              />
+              <path
+                class="art-ridge"
+                d="M0 277c53-16 85-65 134-41 49 24 70-43 126-20 45 18 78-38 126-18 60 25 75-15 174 12v110H0Z"
+              />
+              <path
+                class="art-route"
+                d="M13 286c36-17 40-73 81-61 43 12 38-61 87-50 51 11 49 24 89-3 45-31 59 20 99-8 46-32 59 20 98 3 44-18 39 1 80-1"
+              />
+            }
+            @case ('lombardia') {
+              <path
+                class="art-land"
+                d="M0 320V210l58-55 54 25 65-80 63 70 69-117 56 90 52-52 143 119v110Z"
+              />
+              <path
+                class="art-lake"
+                d="M0 238c73-16 114 16 181-1 81-21 127 22 205 1 67-18 95 4 174-18v100H0Z"
+              />
+              <path
+                class="art-leaves"
+                d="M73 78c29-31 74-17 83 19-41 19-70 1-83-19Zm335 11c23-32 66-28 84 7-26 31-67 20-84-7Z"
+              />
+              <path
+                class="art-route"
+                d="M13 269c54-37 73-77 119-50 37 21 61-55 102-35 47 23 50-61 98-42 52 21 50-47 96-23 47 24 49 7 119 23"
+              />
+            }
+          }
         </svg>
-        <span class="distance-stamp">{{ race.distance }}<small>ON THE ROAD</small></span>
+        <span class="distance-stamp"
+          >{{ race.artwork.detail }}<small>{{ race.artwork.feature }}</small></span
+        >
       </div>
     </header>
 
@@ -37,13 +166,17 @@
       <app-race-results [results]="race.results" />
       <div class="source-note">
         <span>RESULTS SOURCE</span>
-        <a [href]="race.sourceUrl" target="_blank" rel="noreferrer">Full {{ race.name }} results at source ↗</a>
+        <a [href]="race.sourceUrl" target="_blank" rel="noreferrer"
+          >Full {{ race.name }} results at source ↗</a
+        >
       </div>
     </section>
 
     <aside class="race-winner">
       <div class="winner-mark" aria-hidden="true">01</div>
-      <div><span>THE 2026 WINNER</span><strong>{{ race.winner }}</strong></div>
+      <div>
+        <span>THE 2026 WINNER</span><strong>{{ race.winner }}</strong>
+      </div>
       <a [routerLink]="['/riders', riderSlug(race.winner)]">View rider ↗</a>
     </aside>
   </article>
