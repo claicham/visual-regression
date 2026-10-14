@@ -37,3 +37,15 @@ export const MonumentsOnly: Story = {
     ).toHaveLength(5);
   },
 };
+
+export const ClassicsOnly: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Classics' }));
+    await expect(canvas.getByRole('heading', { name: 'The classics' })).toBeVisible();
+    await expect(canvas.queryByRole('heading', { name: 'The monuments' })).toBeNull();
+    await expect(
+      canvas.getAllByRole('link').filter((link) => link.getAttribute('href')?.includes('/races/')),
+    ).toHaveLength(2);
+  },
+};

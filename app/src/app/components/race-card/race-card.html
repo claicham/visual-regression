@@ -1,7 +1,11 @@
 <a class="race-card" [routerLink]="['/races', race().slug]" [style.--race-accent]="race().accent">
   <div class="card-topline">
     <span class="race-category">{{
-      race().category === 'Grand Tour' ? 'THREE WEEKS' : 'MONUMENT'
+      race().category === 'Grand Tour'
+        ? 'THREE WEEKS'
+        : race().category === 'Monument'
+          ? 'MONUMENT'
+          : 'CLASSIC'
     }}</span>
     <span class="race-date">{{ race().date }}</span>
   </div>

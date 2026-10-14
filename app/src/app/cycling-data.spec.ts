@@ -9,9 +9,10 @@ describe('cycling season data', () => {
     expect(new Set(riders.map((rider) => rider.slug)).size).toBe(25);
   });
 
-  it('includes three grand tours and all five monuments', () => {
+  it('includes three grand tours, five monuments, and two classics', () => {
     expect(races.filter((race) => race.category === 'Grand Tour')).toHaveLength(3);
     expect(races.filter((race) => race.category === 'Monument')).toHaveLength(5);
+    expect(races.filter((race) => race.category === 'Classic')).toHaveLength(2);
   });
 
   it('keeps a complete top-ten classification and source for every race', () => {

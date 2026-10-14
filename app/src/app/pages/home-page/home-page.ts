@@ -1,12 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {
-  races,
-  riders,
-  rankingDate,
-  rankingSource,
-  type RaceCategory,
-} from '../../cycling-data';
+import { races, riders, rankingDate, rankingSource, type RaceCategory } from '../../cycling-data';
 import { RaceCardComponent } from '../../components/race-card/race-card';
 import { RiderRankingComponent } from '../../components/rider-ranking/rider-ranking';
 
@@ -19,7 +13,7 @@ type RaceFilter = 'All races' | RaceCategory;
   styleUrl: './home-page.scss',
 })
 export class HomePage {
-  protected readonly filters: RaceFilter[] = ['All races', 'Grand Tour', 'Monument'];
+  protected readonly filters: RaceFilter[] = ['All races', 'Grand Tour', 'Monument', 'Classic'];
   protected readonly riders = riders;
   protected readonly rankingDate = rankingDate;
   protected readonly rankingSource = rankingSource;
@@ -29,6 +23,9 @@ export class HomePage {
   );
   protected readonly monuments = computed(() =>
     races.filter((race) => race.category === 'Monument' && this.isVisible(race.category)),
+  );
+  protected readonly classics = computed(() =>
+    races.filter((race) => race.category === 'Classic' && this.isVisible(race.category)),
   );
 
   protected chooseFilter(filter: RaceFilter): void {

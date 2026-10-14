@@ -6,7 +6,13 @@
     <header class="race-hero" [style.--race-accent]="race.accent">
       <div class="race-hero-copy">
         <div class="race-label">
-          {{ race.category === 'Grand Tour' ? 'THE GRAND TOURS' : 'THE FIVE MONUMENTS' }}
+          {{
+            race.category === 'Grand Tour'
+              ? 'THE GRAND TOURS'
+              : race.category === 'Monument'
+                ? 'THE FIVE MONUMENTS'
+                : 'THE CLASSICS'
+          }}
           <span>·</span> 2026
         </div>
         <div class="race-date">{{ race.date }}</div>
@@ -71,6 +77,34 @@
               <path
                 class="art-route"
                 d="M14 281c61-5 77-46 126-37 43 8 31-45 72-36 56 12 35-73 94-64 46 7 24-73 82-69 41 3 30-41 76-37 38 3 42 10 81-3"
+              />
+            }
+            @case ('strade') {
+              <path
+                class="art-land"
+                d="M0 320V224l72-42 54 28 70-74 58 53 65-94 67 82 52-34 122 71v106Z"
+              />
+              <path
+                class="art-ridge"
+                d="M0 270c58-27 97 5 145-19 53-26 78 15 132-16 52-31 87 5 131-18 52-27 91-5 152 14v89H0Z"
+              />
+              <path
+                class="art-route"
+                d="M12 282c42-15 53-62 91-49 40 14 45-51 86-43 45 9 41-58 83-43 49 17 58-34 101-20 44 14 46-12 87-4 44 8 65-14 88-17"
+              />
+            }
+            @case ('omloop') {
+              <path
+                class="art-forest"
+                d="M0 0h560v218c-56-22-95 7-143-13-57-24-92 9-147-8-52-16-93 12-142-8-46-19-83 7-128-4Z"
+              />
+              <path
+                class="art-cobbles"
+                d="M0 320V225c64-29 117-15 174-4 68 13 121-12 184 4 70 17 116-12 202 2v93Z"
+              />
+              <path
+                class="art-route"
+                d="M10 267c42-8 60-46 94-35 35 11 43-59 83-51 42 8 42-52 83-35 39 16 59-22 94-9 42 15 45 38 82 27 43-12 69 12 104 1"
               />
             }
             @case ('riviera') {

@@ -3,9 +3,13 @@
     <div class="hero-copy">
       <div class="season-label"><span aria-hidden="true"></span> THE 2026 ROAD SEASON</div>
       <h1 id="hero-title">Every road leads<br />to <em>greatness.</em></h1>
-      <p>A season in motion. Follow the riders, relive the races, and find your place in the peloton.</p>
+      <p>
+        A season in motion. Follow the riders, relive the races, and find your place in the peloton.
+      </p>
       <div class="hero-actions">
-        <a class="hero-button" routerLink="/" fragment="races">Explore the season <span aria-hidden="true">↓</span></a>
+        <a class="hero-button" routerLink="/" fragment="races"
+          >Explore the season <span aria-hidden="true">↓</span></a
+        >
         <span class="hero-footnote">3 GRAND TOURS · 5 MONUMENTS</span>
       </div>
     </div>
@@ -14,14 +18,33 @@
       <div class="hero-contour contour-one"></div>
       <div class="hero-contour contour-two"></div>
       <svg viewBox="0 0 580 340" class="mountain-art">
-        <path d="M0 288 111 177l52 50L281 80l54 64 67-97 48 65 30-29 100 105v152H0Z" fill="#234c3d" />
-        <path d="m176 223 105-143 51 60-29-12-22 22-20-7-24 31-17-4-29 43-18-5-26 15Z" fill="#b2c8a9" opacity=".8" />
-        <path d="m334 144 68-97 48 65-26-15-14 16-20-4-14 20-19-1-12 20-11-4Z" fill="#d8dfc7" opacity=".84" />
-        <path d="M20 263c78-56 120 41 196-7s126-19 176 3 111 27 178-32" fill="none" stroke="#f3a66c" stroke-width="2" stroke-dasharray="5 7" />
+        <path
+          d="M0 288 111 177l52 50L281 80l54 64 67-97 48 65 30-29 100 105v152H0Z"
+          fill="#234c3d"
+        />
+        <path
+          d="m176 223 105-143 51 60-29-12-22 22-20-7-24 31-17-4-29 43-18-5-26 15Z"
+          fill="#b2c8a9"
+          opacity=".8"
+        />
+        <path
+          d="m334 144 68-97 48 65-26-15-14 16-20-4-14 20-19-1-12 20-11-4Z"
+          fill="#d8dfc7"
+          opacity=".84"
+        />
+        <path
+          d="M20 263c78-56 120 41 196-7s126-19 176 3 111 27 178-32"
+          fill="none"
+          stroke="#f3a66c"
+          stroke-width="2"
+          stroke-dasharray="5 7"
+        />
         <circle cx="20" cy="263" r="4" fill="#f3a66c" />
         <circle cx="570" cy="227" r="4" fill="#f3a66c" />
       </svg>
-      <div class="hero-stamp"><span>UCI</span><strong>WORLD<br />TOUR</strong><span>EST. 1989</span></div>
+      <div class="hero-stamp">
+        <span>UCI</span><strong>WORLD<br />TOUR</strong><span>EST. 1989</span>
+      </div>
     </div>
     <div class="hero-stats">
       <div><strong>25</strong><span>RIDER PROFILES</span></div>
@@ -35,7 +58,8 @@
       <div class="section-kicker"><span>01</span> THE RIDERS</div>
       <h2 id="riders-heading">The ones to watch.</h2>
       <p>Meet the names shaping the 2026 road season.</p>
-      <div class="ranking-source">UCI WORLD RANKING · {{ rankingDate }}
+      <div class="ranking-source">
+        UCI WORLD RANKING · {{ rankingDate }}
         <a [href]="rankingSource" target="_blank" rel="noreferrer">Source ↗</a>
       </div>
     </div>
@@ -51,8 +75,21 @@
       </div>
       <div class="filter-tabs" role="group" aria-label="Filter races">
         @for (filter of filters; track filter) {
-          <button type="button" [class.selected]="selectedFilter() === filter" [attr.aria-pressed]="selectedFilter() === filter" (click)="chooseFilter(filter)">
-            {{ filter === 'All races' ? 'All races' : filter === 'Grand Tour' ? 'Grand tours' : 'Monuments' }}
+          <button
+            type="button"
+            [class.selected]="selectedFilter() === filter"
+            [attr.aria-pressed]="selectedFilter() === filter"
+            (click)="chooseFilter(filter)"
+          >
+            {{
+              filter === 'All races'
+                ? 'All races'
+                : filter === 'Grand Tour'
+                  ? 'Grand tours'
+                  : filter === 'Monument'
+                    ? 'Monuments'
+                    : 'Classics'
+            }}
           </button>
         }
       </div>
@@ -80,6 +117,20 @@
         </div>
         <div class="race-grid">
           @for (race of monuments(); track race.slug) {
+            <app-race-card [race]="race" />
+          }
+        </div>
+      </section>
+    }
+
+    @if (classics().length) {
+      <section class="race-group" aria-labelledby="classics-heading">
+        <div class="group-title">
+          <h3 id="classics-heading">The classics</h3>
+          <span>ONE DAY · DIRT AND COBBLES</span>
+        </div>
+        <div class="race-grid">
+          @for (race of classics(); track race.slug) {
             <app-race-card [race]="race" />
           }
         </div>

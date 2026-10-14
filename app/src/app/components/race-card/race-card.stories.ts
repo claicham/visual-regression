@@ -14,3 +14,4 @@ type Story = StoryObj<RaceCardComponent>;
 
 export const GrandTour: Story = {};
 export const Monument: Story = { args: { race: races[4] } };
+export const Classic: Story = { args: { race: races[3] } };

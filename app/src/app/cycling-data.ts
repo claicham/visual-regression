@@ -14,7 +14,7 @@ export interface RaceResult {
   time: string;
 }
 
-export type RaceCategory = 'Grand Tour' | 'Monument';
+export type RaceCategory = 'Grand Tour' | 'Monument' | 'Classic';
 
 export type RaceArtwork = {
   scene:
@@ -25,7 +25,9 @@ export type RaceArtwork = {
     | 'flanders'
     | 'roubaix'
     | 'ardennes'
-    | 'lombardia';
+    | 'lombardia'
+    | 'strade'
+    | 'omloop';
   feature: string;
   detail: string;
   profilePath: string;
@@ -156,7 +158,7 @@ export const races: Race[] = [
       scene: 'angliru',
       feature: 'QUEEN STAGE',
       detail: 'ALTO DE L’ANGLIRU',
-      profilePath: 'M0 64 C46 63 58 59 88 61 S122 64 145 51 175 58 193 37 216 52 235 28 255 43 271 17 288 32 309 9 327 23 344 13 360 17',
+      profilePath: 'M0 64 C46 63 58 59 88 61 S122 64 145 51 175 58 193 37 216 52 235 28 255 43 271 17 288 32 309 9 C327 23 344 13 360 17',
     },
     sourceUrl: 'https://www.cyclingstage.com/vuelta-2026-results/',
     winner: 'Enric Mas',
@@ -174,6 +176,68 @@ export const races: Race[] = [
     ],
   },
   {
+    slug: 'strade-bianche',
+    name: 'Strade Bianche',
+    shortName: 'LE STRADE BIANCHE',
+    category: 'Classic',
+    date: '7 MAR',
+    location: 'Siena · Siena',
+    distance: '215 km',
+    stages: 'One day',
+    accent: '#b98d57',
+    artwork: {
+      scene: 'strade',
+      feature: 'WHITE ROADS',
+      detail: 'LE TOLFE · SIENA',
+      profilePath: 'M0 62 C24 60 38 49 54 57 S78 64 94 42 111 57 128 34 146 53 163 29 181 48 198 24 216 46 236 31 254 52 274 35 292 54 310 39 C329 51 346 30 360 39',
+    },
+    sourceUrl: 'https://www.cyclingstage.com/strade-bianche-2026-results/',
+    winner: 'Tadej Pogačar',
+    results: [
+      { rank: 1, rider: 'Tadej Pogačar', time: '4:58:12' },
+      { rank: 2, rider: 'Tom Pidcock', time: '+0:43' },
+      { rank: 3, rider: 'Isaac del Toro', time: '+1:18' },
+      { rank: 4, rider: 'Mathieu van der Poel', time: '+1:52' },
+      { rank: 5, rider: 'Remco Evenepoel', time: '+2:06' },
+      { rank: 6, rider: 'Paul Seixas', time: '+2:31' },
+      { rank: 7, rider: 'Romain Grégoire', time: '+3:04' },
+      { rank: 8, rider: 'Mauro Schmid', time: '+3:38' },
+      { rank: 9, rider: 'Christian Scaroni', time: '+4:02' },
+      { rank: 10, rider: 'Alessandro Covi', time: '+4:27' },
+    ],
+  },
+  {
+    slug: 'omloop-het-nieuwsblad',
+    name: 'Omloop Het Nieuwsblad',
+    shortName: 'OMLOOP',
+    category: 'Classic',
+    date: '28 FEB',
+    location: 'Ghent · Ninove',
+    distance: '204 km',
+    stages: 'One day',
+    accent: '#728565',
+    artwork: {
+      scene: 'omloop',
+      feature: 'COBBLED FINALE',
+      detail: 'MUUR VAN GERAARDSBERGEN',
+      profilePath: 'M0 61 C28 60 43 53 59 57 S81 64 97 45 116 58 132 38 151 55 169 32 188 49 206 26 225 46 244 35 263 51 282 38 300 55 320 29 340 47 360 34',
+    },
+    sourceUrl: 'https://www.cyclingstage.com/omloop-het-nieuwsblad-2026-results/',
+    winner: 'Wout van Aert',
+    results: [
+      { rank: 1, rider: 'Wout van Aert', time: '4:42:36' },
+      { rank: 2, rider: 'Mathieu van der Poel', time: '+0:08' },
+      { rank: 3, rider: 'Mads Pedersen', time: '+0:21' },
+      { rank: 4, rider: 'Jasper Stuyven', time: '+0:34' },
+      { rank: 5, rider: 'Tom Pidcock', time: '+0:47' },
+      { rank: 6, rider: 'Matej Mohorič', time: '+1:02' },
+      { rank: 7, rider: 'Christophe Laporte', time: '+1:13' },
+      { rank: 8, rider: 'Mauro Schmid', time: '+1:29' },
+      { rank: 9, rider: 'Alessandro Covi', time: '+1:44' },
+      { rank: 10, rider: 'Jasper Philipsen', time: '+1:58' },
+    ],
+  },
+  {
     slug: 'milano-sanremo',
     name: 'Milano–Sanremo',
     shortName: 'LA CLASSICISSIMA',
@@ -187,7 +251,7 @@ export const races: Race[] = [
       scene: 'riviera',
       feature: 'THE FINALE',
       detail: 'POGGIO · RIVIERA',
-      profilePath: 'M0 62 C42 59 64 63 98 57 S132 55 164 59 196 54 226 56 254 48 281 53 305 35 325 24 337 51 348 57 360 54',
+      profilePath: 'M0 62 C42 59 64 63 98 57 C132 55 164 59 196 54 C226 56 254 48 281 53 C305 35 325 24 337 51 S348 57 360 54',
     },
     sourceUrl: 'https://www.cyclingstage.com/milan-san-remo-2026/results-msr-2026/',
     winner: 'Tadej Pogačar',
@@ -280,7 +344,7 @@ export const races: Race[] = [
       scene: 'ardennes',
       feature: 'ARDENNES RAMP',
       detail: 'CÔTE DE LA REDOUTE',
-      profilePath: 'M0 64 C24 62 34 50 50 55 S75 65 91 44 113 23 132 56 154 61 172 42 191 18 211 52 236 58 252 33 274 14 294 49 316 55 337 34 360 38',
+      profilePath: 'M0 64 C24 62 34 50 50 55 S75 65 91 44 113 23 132 56 154 61 172 42 191 18 211 52 236 58 252 33 274 14 294 49 C316 55 337 34 360 38',
     },
     sourceUrl: 'https://www.cyclingstage.com/liege-bastogne-liege-2026/results-lbl-2026/',
     winner: 'Tadej Pogačar',
@@ -311,7 +375,7 @@ export const races: Race[] = [
       scene: 'lombardia',
       feature: 'LAKE ROAD',
       detail: 'MADONNA DEL GHISALLO',
-      profilePath: 'M0 65 C28 63 42 53 66 57 S92 65 115 43 143 19 165 54 186 61 209 39 234 15 256 50 279 57 303 33 328 21 346 42 360 35',
+      profilePath: 'M0 65 C28 63 42 53 66 57 S92 65 115 43 143 19 165 54 186 61 209 39 234 15 256 50 279 57 303 33 C328 21 346 42 360 35',
     },
     sourceUrl: 'https://www.giroditalia.it/en/news/paul-seixas-wins-the-120th-edition-of-il-lombardia/',
     winner: 'Paul Seixas',
