@@ -23,6 +23,7 @@ describe('cycling season data', () => {
       expect(race.sourceUrl.startsWith('https://')).toBe(true);
       expect(race.artwork.feature).not.toBe('');
       expect(race.artwork.detail).not.toBe('');
+      expect(race.artwork.profilePath).toMatch(/^M0 /);
     }
   });
 

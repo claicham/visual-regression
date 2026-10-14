@@ -1,14 +1,14 @@
 <a class="race-card" [routerLink]="['/races', race().slug]" [style.--race-accent]="race().accent">
   <div class="card-topline">
-    <span class="race-category">{{ race().category === 'Grand Tour' ? 'THREE WEEKS' : 'MONUMENT' }}</span>
+    <span class="race-category">{{
+      race().category === 'Grand Tour' ? 'THREE WEEKS' : 'MONUMENT'
+    }}</span>
     <span class="race-date">{{ race().date }}</span>
   </div>
   <div class="route-art" aria-hidden="true">
     <svg viewBox="0 0 360 84" preserveAspectRatio="none">
-      <path class="route-shadow" d="M0 66 C28 62 34 68 58 48 S95 35 117 49 151 63 170 39 206 28 226 48 260 65 279 34 317 19 340 34 350 36 360 25" />
-      <path class="route-line" d="M0 66 C28 62 34 68 58 48 S95 35 117 49 151 63 170 39 206 28 226 48 260 65 279 34 317 19 340 34 350 36 360 25" />
-      <circle cx="0" cy="66" r="4" class="route-dot" />
-      <circle cx="360" cy="25" r="4" class="route-dot" />
+      <path class="route-shadow" [attr.d]="race().artwork.profilePath" />
+      <path class="route-line" [attr.d]="race().artwork.profilePath" />
     </svg>
     <span class="route-label start">{{ race().location.split(' · ')[0] }}</span>
     <span class="route-label finish">{{ race().location.split(' · ')[1] }}</span>
@@ -17,7 +17,9 @@
     <div>
       <div class="race-kicker">{{ race().shortName }}</div>
       <h3>{{ race().name }}</h3>
-      <span class="race-distance">{{ race().distance }} <span aria-hidden="true">·</span> {{ race().stages }}</span>
+      <span class="race-distance"
+        >{{ race().distance }} <span aria-hidden="true">·</span> {{ race().stages }}</span
+      >
     </div>
     <span class="card-arrow" aria-hidden="true">↗</span>
   </div>

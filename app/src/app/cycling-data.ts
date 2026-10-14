@@ -28,6 +28,7 @@ export type RaceArtwork = {
     | 'lombardia';
   feature: string;
   detail: string;
+  profilePath: string;
 };
 
 export interface Race {
@@ -89,7 +90,12 @@ export const races: Race[] = [
     distance: '3,459 km',
     stages: '21 stages',
     accent: '#cf5a6a',
-    artwork: { scene: 'stelvio', feature: 'QUEEN STAGE', detail: 'PASSO DELLO STELVIO' },
+    artwork: {
+      scene: 'stelvio',
+      feature: 'QUEEN STAGE',
+      detail: 'PASSO DELLO STELVIO',
+      profilePath: 'M0 65 C32 64 42 53 67 56 S95 66 119 49 150 61 171 35 204 14 230 48 263 56 285 28 315 10 337 38 350 33 360 17',
+    },
     sourceUrl: 'https://www.cyclingstage.com/giro-2026-results/',
     winner: 'Jonas Vingegaard',
     results: [
@@ -115,7 +121,12 @@ export const races: Race[] = [
     distance: '3,333 km',
     stages: '21 stages',
     accent: '#e0b945',
-    artwork: { scene: 'tourmalet', feature: 'QUEEN STAGE', detail: 'COL DU TOURMALET' },
+    artwork: {
+      scene: 'tourmalet',
+      feature: 'QUEEN STAGE',
+      detail: 'COL DU TOURMALET',
+      profilePath: 'M0 66 C38 64 48 56 78 58 S112 62 133 43 161 53 181 27 205 12 226 47 248 58 272 36 300 16 322 45 340 40 360 24',
+    },
     sourceUrl: 'https://www.cyclingstage.com/tour-de-france-2026-results/',
     winner: 'Tadej Pogačar',
     results: [
@@ -141,7 +152,12 @@ export const races: Race[] = [
     distance: '3,272 km',
     stages: '21 stages',
     accent: '#df7452',
-    artwork: { scene: 'angliru', feature: 'QUEEN STAGE', detail: 'ALTO DE L’ANGLIRU' },
+    artwork: {
+      scene: 'angliru',
+      feature: 'QUEEN STAGE',
+      detail: 'ALTO DE L’ANGLIRU',
+      profilePath: 'M0 64 C46 63 58 59 88 61 S122 64 145 51 175 58 193 37 216 52 235 28 255 43 271 17 288 32 309 9 327 23 344 13 360 17',
+    },
     sourceUrl: 'https://www.cyclingstage.com/vuelta-2026-results/',
     winner: 'Enric Mas',
     results: [
@@ -167,7 +183,12 @@ export const races: Race[] = [
     distance: '298 km',
     stages: 'One day',
     accent: '#df7452',
-    artwork: { scene: 'riviera', feature: 'THE FINALE', detail: 'POGGIO · RIVIERA' },
+    artwork: {
+      scene: 'riviera',
+      feature: 'THE FINALE',
+      detail: 'POGGIO · RIVIERA',
+      profilePath: 'M0 62 C42 59 64 63 98 57 S132 55 164 59 196 54 226 56 254 48 281 53 305 35 325 24 337 51 348 57 360 54',
+    },
     sourceUrl: 'https://www.cyclingstage.com/milan-san-remo-2026/results-msr-2026/',
     winner: 'Tadej Pogačar',
     results: [
@@ -193,7 +214,12 @@ export const races: Race[] = [
     distance: '278 km',
     stages: 'One day',
     accent: '#c48b54',
-    artwork: { scene: 'flanders', feature: 'COBBLED CLIMB', detail: 'OUDE KWAREMONT' },
+    artwork: {
+      scene: 'flanders',
+      feature: 'COBBLED CLIMB',
+      detail: 'OUDE KWAREMONT',
+      profilePath: 'M0 62 C30 61 44 50 61 58 S85 65 101 42 120 23 135 58 151 62 168 45 189 28 205 57 221 63 241 37 262 19 278 54 300 61 321 39 340 31 360 42',
+    },
     sourceUrl: 'https://www.cyclingstage.com/tour-of-flanders-2026/results-rvv-2026/',
     winner: 'Tadej Pogačar',
     results: [
@@ -219,7 +245,12 @@ export const races: Race[] = [
     distance: '258 km',
     stages: 'One day',
     accent: '#606c60',
-    artwork: { scene: 'roubaix', feature: 'PAVÉ SECTOR', detail: 'ARENBERG FOREST' },
+    artwork: {
+      scene: 'roubaix',
+      feature: 'PAVÉ SECTOR',
+      detail: 'ARENBERG FOREST',
+      profilePath: 'M0 51 L26 49 42 52 58 48 74 51 90 47 106 50 122 46 138 50 154 47 170 52 186 48 202 51 218 46 234 50 250 47 266 51 282 48 298 52 314 49 330 51 346 48 360 50',
+    },
     sourceUrl: 'https://www.cyclingstage.com/paris-roubaix-2026/results-pr-2026/',
     winner: 'Wout van Aert',
     results: [
@@ -245,7 +276,12 @@ export const races: Race[] = [
     distance: '259 km',
     stages: 'One day',
     accent: '#ad705a',
-    artwork: { scene: 'ardennes', feature: 'ARDENNES RAMP', detail: 'CÔTE DE LA REDOUTE' },
+    artwork: {
+      scene: 'ardennes',
+      feature: 'ARDENNES RAMP',
+      detail: 'CÔTE DE LA REDOUTE',
+      profilePath: 'M0 64 C24 62 34 50 50 55 S75 65 91 44 113 23 132 56 154 61 172 42 191 18 211 52 236 58 252 33 274 14 294 49 316 55 337 34 360 38',
+    },
     sourceUrl: 'https://www.cyclingstage.com/liege-bastogne-liege-2026/results-lbl-2026/',
     winner: 'Tadej Pogačar',
     results: [
@@ -271,7 +307,12 @@ export const races: Race[] = [
     distance: '241 km',
     stages: 'One day',
     accent: '#728565',
-    artwork: { scene: 'lombardia', feature: 'LAKE ROAD', detail: 'MADONNA DEL GHISALLO' },
+    artwork: {
+      scene: 'lombardia',
+      feature: 'LAKE ROAD',
+      detail: 'MADONNA DEL GHISALLO',
+      profilePath: 'M0 65 C28 63 42 53 66 57 S92 65 115 43 143 19 165 54 186 61 209 39 234 15 256 50 279 57 303 33 328 21 346 42 360 35',
+    },
     sourceUrl: 'https://www.giroditalia.it/en/news/paul-seixas-wins-the-120th-edition-of-il-lombardia/',
     winner: 'Paul Seixas',
     results: [
