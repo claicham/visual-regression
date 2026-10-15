@@ -142,13 +142,28 @@ h2 {
   .team-row {
     min-height: 4.75rem;
     grid-template-columns: 1.5rem minmax(0, 1fr) 2.25rem;
+    grid-template-areas:
+      'rank team score'
+      '. riders riders';
     gap: 0.625rem;
   }
 
+  .rank {
+    grid-area: rank;
+  }
+
+  .team-copy {
+    grid-area: team;
+  }
+
   .team-riders {
-    grid-column: 2 / 4;
+    grid-area: riders;
     margin-top: -0.8125rem;
     padding-bottom: 0.8125rem;
+  }
+
+  .team-score {
+    grid-area: score;
   }
 
   .team-riders a {

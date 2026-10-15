@@ -103,6 +103,7 @@ h1 em {
   position: relative;
   min-width: 0;
   align-self: stretch;
+  contain: paint;
   overflow: hidden;
   background: radial-gradient(ellipse at 58% 36%, #436756 0%, #254a3a 43%, transparent 75%);
 }

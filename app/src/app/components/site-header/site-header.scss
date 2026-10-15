@@ -106,3 +106,22 @@ nav a.active {
     display: none;
   }
 }
+
+@media (max-width: 30rem) {
+  .brand-mark {
+    display: none;
+  }
+
+  .brand {
+    gap: 0;
+    font-size: 0.75rem;
+  }
+
+  nav {
+    gap: 0.625rem;
+  }
+
+  nav a {
+    font-size: 0.6875rem;
+  }
+}
