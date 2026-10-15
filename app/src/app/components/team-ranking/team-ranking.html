@@ -1,0 +1,31 @@
+<section class="team-panel" aria-labelledby="teams-ranking-title">
+  <div class="panel-heading">
+    <div>
+      <div class="eyebrow">THE SQUADS · TOP RIDERS</div>
+      <h2 id="teams-ranking-title">Team index</h2>
+    </div>
+    <span class="ranking-badge">TOP {{ teams().length }}</span>
+  </div>
+
+  <ol class="team-list">
+    @for (team of teams(); track team.name) {
+      <li class="team-row">
+        <span class="rank">{{ team.rank.toString().padStart(2, '0') }}</span>
+        <div class="team-copy">
+          <strong>{{ team.name }}</strong>
+          <span>{{ team.riderCount }} ranked {{ team.riderCount === 1 ? 'rider' : 'riders' }}</span>
+        </div>
+        <div class="team-riders" [attr.aria-label]="team.name + ' top riders'">
+          @for (rider of team.topRiders; track rider.slug) {
+            <a [routerLink]="['/riders', rider.slug]">{{ rider.name }}</a>
+          }
+        </div>
+        <span class="team-score" [attr.aria-label]="team.score + ' index points'">{{
+          team.score
+        }}</span>
+      </li>
+    }
+  </ol>
+
+  <p class="methodology">INDEX SCORE · TOP THREE RIDERS IN THE CURRENT TOP 25</p>
+</section>

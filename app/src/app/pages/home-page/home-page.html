@@ -10,7 +10,7 @@
         <a class="hero-button" routerLink="/" fragment="races"
           >Explore the season <span aria-hidden="true">↓</span></a
         >
-        <span class="hero-footnote">3 GRAND TOURS · 5 MONUMENTS</span>
+        <span class="hero-footnote">3 GRAND TOURS · 5 MONUMENTS · 2 CLASSICS</span>
       </div>
     </div>
     <div class="hero-art" aria-hidden="true">
@@ -48,7 +48,7 @@
     </div>
     <div class="hero-stats">
       <div><strong>25</strong><span>RIDER PROFILES</span></div>
-      <div><strong>08</strong><span>RACE ARCHIVES</span></div>
+      <div><strong>10</strong><span>RACE ARCHIVES</span></div>
       <div><strong>01</strong><span>UNFORGETTABLE SEASON</span></div>
     </div>
   </section>
@@ -66,10 +66,20 @@
     <app-rider-ranking [riders]="riders" />
   </section>
 
+  <section class="teams-section" id="teams" aria-labelledby="teams-heading">
+    <div class="section-intro">
+      <div class="section-kicker"><span>02</span> THE TEAMS</div>
+      <h2 id="teams-heading">Strength in depth.</h2>
+      <p>See which squads lead the season through the riders at the front of the current top 25.</p>
+      <div class="team-index-note">TEAM INDEX · TOP THREE RIDERS PER SQUAD</div>
+    </div>
+    <app-team-ranking [teams]="teamRankings" />
+  </section>
+
   <section class="races-section" id="races" aria-labelledby="races-heading">
     <div class="races-heading">
       <div>
-        <div class="section-kicker"><span>02</span> THE RACE SEASON</div>
+        <div class="section-kicker"><span>03</span> THE RACE SEASON</div>
         <h2 id="races-heading">The long way round.</h2>
         <p>Three weeks of grit. One day to make history.</p>
       </div>

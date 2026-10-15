@@ -280,6 +280,23 @@ h1 em {
   text-underline-offset: 0.1875rem;
 }
 
+.teams-section {
+  display: grid;
+  grid-template-columns: minmax(16.25rem, 1fr) minmax(23.75rem, 1.08fr);
+  align-items: start;
+  gap: clamp(2.375rem, 8vw, 7rem);
+  padding: 0 7.2% 6.25rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.team-index-note {
+  margin-top: 1.75rem;
+  color: #626a62;
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+}
+
 .races-section {
   padding: 4.5rem 0 0;
   border-top: 0.0625rem solid var(--line);
@@ -373,6 +390,12 @@ h1 em {
     padding-inline: 2%;
   }
 
+  .teams-section {
+    grid-template-columns: minmax(13.75rem, 0.8fr) minmax(21.25rem, 1.2fr);
+    gap: 2.375rem;
+    padding-inline: 2%;
+  }
+
   .race-grid,
   .grand-tour-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -437,6 +460,12 @@ h1 em {
     grid-template-columns: 1fr;
     gap: 1.5625rem;
     padding: 3.625rem 0 4.1875rem;
+  }
+
+  .teams-section {
+    grid-template-columns: 1fr;
+    gap: 1.5625rem;
+    padding: 0 0 4.1875rem;
   }
 
   .section-intro {

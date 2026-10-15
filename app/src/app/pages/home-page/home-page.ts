@@ -1,20 +1,29 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { races, riders, rankingDate, rankingSource, type RaceCategory } from '../../cycling-data';
+import {
+  races,
+  riders,
+  teamRankings,
+  rankingDate,
+  rankingSource,
+  type RaceCategory,
+} from '../../cycling-data';
 import { RaceCardComponent } from '../../components/race-card/race-card';
 import { RiderRankingComponent } from '../../components/rider-ranking/rider-ranking';
+import { TeamRankingComponent } from '../../components/team-ranking/team-ranking';
 
 type RaceFilter = 'All races' | RaceCategory;
 
 @Component({
   selector: 'app-home-page',
-  imports: [RouterLink, RaceCardComponent, RiderRankingComponent],
+  imports: [RouterLink, RaceCardComponent, RiderRankingComponent, TeamRankingComponent],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
 export class HomePage {
   protected readonly filters: RaceFilter[] = ['All races', 'Grand Tour', 'Monument', 'Classic'];
   protected readonly riders = riders;
+  protected readonly teamRankings = teamRankings;
   protected readonly rankingDate = rankingDate;
   protected readonly rankingSource = rankingSource;
   protected readonly selectedFilter = signal<RaceFilter>('All races');

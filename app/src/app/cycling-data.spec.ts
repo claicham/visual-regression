@@ -1,4 +1,4 @@
-import { races, riders, toSlug } from './cycling-data';
+import { races, riders, teamRankings, toSlug } from './cycling-data';
 
 describe('cycling season data', () => {
   it('contains the complete, ordered top 25 rider ranking', () => {
@@ -7,6 +7,20 @@ describe('cycling season data', () => {
       Array.from({ length: 25 }, (_, index) => index + 1),
     );
     expect(new Set(riders.map((rider) => rider.slug)).size).toBe(25);
+  });
+
+  it('derives team rankings from each squad’s best three riders', () => {
+    expect(teamRankings).toHaveLength(new Set(riders.map((rider) => rider.team)).size);
+    expect(teamRankings.map((team) => team.rank)).toEqual(
+      Array.from({ length: teamRankings.length }, (_, index) => index + 1),
+    );
+    expect(teamRankings[0].name).toBe('UAE Team Emirates XRG');
+    expect(teamRankings[0].topRiders.map((rider) => rider.name)).toEqual([
+      'Tadej Pogačar',
+      'Isaac del Toro',
+      'Benoît Cosnefroy',
+    ]);
+    expect(teamRankings.every((team) => team.topRiders.length <= 3 && team.score > 0)).toBe(true);
   });
 
   it('includes three grand tours, five monuments, and two classics', () => {

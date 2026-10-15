@@ -14,6 +14,14 @@ export interface RaceResult {
   time: string;
 }
 
+export interface TeamRanking {
+  rank: number;
+  name: string;
+  score: number;
+  riderCount: number;
+  topRiders: Rider[];
+}
+
 export type RaceCategory = 'Grand Tour' | 'Monument' | 'Classic';
 
 export type RaceArtwork = {
@@ -80,6 +88,32 @@ export const riders: Rider[] = [
   { slug: 'brandon-mcnulty', rank: 24, name: 'Brandon McNulty', nationality: 'United States', countryCode: 'US', team: 'UAE Team Emirates XRG', specialty: 'Time trialist · climber' },
   { slug: 'primoz-roglic', rank: 25, name: 'Primož Roglič', nationality: 'Slovenia', countryCode: 'SI', team: 'Red Bull – BORA – hansgrohe', specialty: 'Climber · time trialist' },
 ];
+
+const ridersByTeam = riders.reduce((teams, rider) => {
+  const teamRiders = teams.get(rider.team) ?? [];
+  teamRiders.push(rider);
+  teams.set(rider.team, teamRiders);
+  return teams;
+}, new Map<string, Rider[]>());
+
+const unrankedTeamRankings: Omit<TeamRanking, 'rank'>[] = Array.from(
+  ridersByTeam,
+  ([name, teamRiders]) => {
+    const topRiders = teamRiders.slice().sort((left, right) => left.rank - right.rank).slice(0, 3);
+
+    return {
+      name,
+      score: topRiders.reduce((score, rider) => score + (riders.length + 1 - rider.rank), 0),
+      riderCount: teamRiders.length,
+      topRiders,
+    };
+  },
+);
+
+export const teamRankings: TeamRanking[] = unrankedTeamRankings
+  .slice()
+  .sort((left, right) => right.score - left.score)
+  .map((team, index) => ({ ...team, rank: index + 1 }));
 
 export const races: Race[] = [
   {
