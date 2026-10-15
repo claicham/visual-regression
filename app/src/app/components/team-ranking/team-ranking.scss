@@ -78,12 +78,20 @@ h2 {
   gap: 0.1875rem;
 }
 
-.team-copy strong {
+.team-name {
   overflow: hidden;
   color: #24372d;
   font-size: 0.6875rem;
+  font-weight: 700;
+  text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.team-name:hover {
+  color: #a2532e;
+  text-decoration: underline;
+  text-underline-offset: 0.1875rem;
 }
 
 .team-copy span {

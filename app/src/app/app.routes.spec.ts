@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { HomePage } from './pages/home-page/home-page';
 import { RacePage } from './pages/race-page/race-page';
 import { RiderPage } from './pages/rider-page/rider-page';
+import { TeamPage } from './pages/team-page/team-page';
 
 describe('app routes', () => {
   beforeEach(() => {
@@ -38,6 +39,16 @@ describe('app routes', () => {
 
     expect(harness.routeNativeElement?.querySelector('h1')?.textContent).toContain(
       'Tour de France',
+    );
+  });
+
+  it('loads a team profile from the team slug', async () => {
+    const harness = await RouterTestingHarness.create();
+
+    await harness.navigateByUrl('/teams/uae-team-emirates-xrg', TeamPage);
+
+    expect(harness.routeNativeElement?.querySelector('#team-name')?.textContent).toContain(
+      'UAE Team Emirates XRG',
     );
   });
 

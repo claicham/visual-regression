@@ -12,7 +12,7 @@
       <li class="team-row">
         <span class="rank">{{ team.rank.toString().padStart(2, '0') }}</span>
         <div class="team-copy">
-          <strong>{{ team.name }}</strong>
+          <a class="team-name" [routerLink]="['/teams', team.slug]">{{ team.name }}</a>
           <span>{{ team.riderCount }} ranked {{ team.riderCount === 1 ? 'rider' : 'riders' }}</span>
         </div>
         <div class="team-riders" [attr.aria-label]="team.name + ' top riders'">

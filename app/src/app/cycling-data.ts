@@ -16,6 +16,7 @@ export interface RaceResult {
 
 export interface TeamRanking {
   rank: number;
+  slug: string;
   name: string;
   score: number;
   riderCount: number;
@@ -102,6 +103,7 @@ const unrankedTeamRankings: Omit<TeamRanking, 'rank'>[] = Array.from(
     const topRiders = teamRiders.slice().sort((left, right) => left.rank - right.rank).slice(0, 3);
 
     return {
+      slug: toSlug(name),
       name,
       score: topRiders.reduce((score, rider) => score + (riders.length + 1 - rider.rank), 0),
       riderCount: teamRiders.length,
