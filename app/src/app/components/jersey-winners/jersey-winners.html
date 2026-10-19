@@ -1,0 +1,122 @@
+<div class="jersey-cards">
+  @for (item of holders(); track item.jersey.kind) {
+    <article class="jersey-card">
+      <svg class="jersey-art" viewBox="0 0 120 110" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath [id]="idPrefix() + '-clip-' + item.jersey.kind">
+            <path [attr.d]="shape" />
+          </clipPath>
+          @if (item.jersey.dots; as dots) {
+            <pattern
+              [id]="idPrefix() + '-dots-' + item.jersey.kind"
+              width="14"
+              height="14"
+              patternUnits="userSpaceOnUse"
+            >
+              <circle cx="4" cy="4" r="3" [attr.fill]="dots" />
+              <circle cx="11" cy="11" r="3" [attr.fill]="dots" />
+            </pattern>
+          }
+        </defs>
+        <path [attr.d]="shape" [attr.fill]="item.jersey.body" />
+        @if (item.jersey.dots) {
+          <rect
+            width="120"
+            height="110"
+            [attr.fill]="'url(#' + idPrefix() + '-dots-' + item.jersey.kind + ')'"
+            [attr.clip-path]="'url(#' + idPrefix() + '-clip-' + item.jersey.kind + ')'"
+          />
+        }
+        <path
+          d="M2 52 L24 60 M118 52 L96 60"
+          fill="none"
+          [attr.stroke]="item.jersey.trim"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+        <path
+          d="M38 8 Q60 24 82 8 M60 22 V101"
+          fill="none"
+          [attr.stroke]="item.jersey.trim"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        />
+        <path
+          [attr.d]="shape"
+          fill="none"
+          [attr.stroke]="item.jersey.trim"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <div class="jersey-info">
+        <span class="jersey-label">{{ item.jersey.jerseyName }}</span>
+        <a class="jersey-holder" [routerLink]="['/riders', slug(item.holder.rider)]">{{
+          item.holder.rider
+        }}</a>
+        <span class="jersey-team">{{ item.team }}</span>
+        <strong class="jersey-stat">{{
+          item.jersey.kind === 'youth' ? 'Best young rider' : item.holder.value
+        }}</strong>
+      </div>
+    </article>
+  }
+</div>
+
+<div class="jersey-tabs">
+  <div class="tab-list" role="tablist" aria-label="Classification">
+    @for (tab of tabs(); track tab.kind; let index = $index) {
+      <button
+        type="button"
+        role="tab"
+        [id]="idPrefix() + '-tab-' + tab.kind"
+        [attr.aria-selected]="tab.kind === activeTab().kind"
+        [attr.aria-controls]="idPrefix() + '-panel'"
+        [attr.tabindex]="tab.kind === activeTab().kind ? 0 : -1"
+        [class.active]="tab.kind === activeTab().kind"
+        (click)="select(tab.kind)"
+        (keydown)="onKeydown($event, index)"
+      >
+        {{ tab.label }}
+      </button>
+    }
+  </div>
+
+  <div
+    class="tab-panel"
+    role="tabpanel"
+    [id]="idPrefix() + '-panel'"
+    [attr.aria-labelledby]="idPrefix() + '-tab-' + activeTab().kind"
+  >
+    <table class="jersey-table">
+      <caption class="visually-hidden">
+        Top {{ activeTab().rows.length }} — {{ activeTab().label }} classification
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" class="position-column">POS.</th>
+          <th scope="col">RIDER</th>
+          <th scope="col" class="team-column">TEAM</th>
+          <th scope="col" class="value-column">{{ activeTab().valueHeading }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of activeTab().rows; track row.rank) {
+          <tr [class.leader-row]="row.rank === 1">
+            <td class="position-cell">
+              <span class="position">{{ row.rank.toString().padStart(2, '0') }}</span>
+            </td>
+            <td class="name-cell">
+              <a [routerLink]="['/riders', slug(row.rider)]">{{ row.rider }}</a>
+            </td>
+            <td class="team-cell">{{ row.team }}</td>
+            <td class="value-cell">{{ row.value }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    @if (activeTab().note; as note) {
+      <p class="tab-note">{{ note }}</p>
+    }
+  </div>
+</div>

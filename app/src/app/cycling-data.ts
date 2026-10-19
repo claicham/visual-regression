@@ -23,6 +23,27 @@ export interface TeamRanking {
   topRiders: Rider[];
 }
 
+export type JerseyKind = 'points' | 'kom' | 'youth';
+
+export interface JerseyEntry {
+  rank: number;
+  rider: string;
+  value: string;
+}
+
+export interface JerseyClassification {
+  kind: JerseyKind;
+  title: string;
+  jerseyName: string;
+  body: string;
+  trim: string;
+  dots?: string;
+  entries: JerseyEntry[];
+  note?: string;
+}
+
+export type RaceJerseys = Record<JerseyKind, JerseyClassification>;
+
 export type RaceCategory = 'Grand Tour' | 'Monument' | 'Classic';
 
 export type RaceArtwork = {
@@ -56,7 +77,43 @@ export interface Race {
   sourceUrl: string;
   winner: string;
   results: RaceResult[];
+  jerseys?: RaceJerseys;
 }
+
+export const riderTeams: Record<string, string> = {
+  'Jonas Vingegaard': 'Team Visma | Lease a Bike',
+  'Felix Gall': 'Decathlon CMA CGM Team',
+  'Thymen Arensman': 'Netcompany INEOS',
+  'Afonso Eulálio': 'Bahrain Victorious',
+  'Davide Piganzoli': 'Team Visma | Lease a Bike',
+  'Paul Magnier': 'Soudal Quick-Step',
+  'Jonathan Milan': 'Lidl–Trek',
+  'Andreas Leknessund': 'Uno-X Mobility',
+  'Giulio Ciccone': 'Lidl–Trek',
+  'Einer Rubio': 'Movistar Team',
+  'Tadej Pogačar': 'UAE Team Emirates XRG',
+  'Remco Evenepoel': 'Red Bull – BORA – hansgrohe',
+  'Isaac del Toro': 'UAE Team Emirates XRG',
+  'Paul Seixas': 'Decathlon CMA CGM Team',
+  'Lenny Martinez': 'Bahrain Victorious',
+  'Juan Ayuso': 'Lidl–Trek',
+  'Mads Pedersen': 'Lidl–Trek',
+  'Jasper Philipsen': 'Alpecin–Premier Tech',
+  'Olav Kooij': 'Team Visma | Lease a Bike',
+  'Richard Carapaz': 'EF Education–EasyPost',
+  'Sepp Kuss': 'Team Visma | Lease a Bike',
+  'Enric Mas': 'Movistar Team',
+  'Primož Roglič': 'Red Bull – BORA – hansgrohe',
+  'Wout van Aert': 'Team Visma | Lease a Bike',
+  'Matthew Brennan': 'Team Visma | Lease a Bike',
+  'Bryan Coquard': 'Cofidis',
+  'Jordi Meeus': 'Red Bull – BORA – hansgrohe',
+  'Santiago Buitrago': 'Bahrain Victorious',
+  'Mikel Landa': 'Soudal Quick-Step',
+  'Tobias Halland Johannessen': 'Uno-X Mobility',
+  'Oscar Onley': 'Netcompany INEOS',
+  'Jakob Omrzel': 'Bahrain Victorious',
+};
 
 export const rankingDate = '05 OCT 2026';
 export const rankingSource =
@@ -148,6 +205,48 @@ export const races: Race[] = [
       { rank: 9, rider: 'Damiano Caruso', time: '+11:24' },
       { rank: 10, rider: 'Egan Bernal', time: '+12:54' },
     ],
+    jerseys: {
+      points: {
+        kind: 'points',
+        title: 'Points',
+        jerseyName: 'Maglia ciclamino',
+        body: '#b8337a',
+        trim: '#7d1f52',
+        entries: [
+          { rank: 1, rider: 'Paul Magnier', value: '200 pts' },
+          { rank: 2, rider: 'Jonathan Milan', value: '153 pts' },
+          { rank: 3, rider: 'Guillermo Thomas Silva', value: '99 pts' },
+          { rank: 4, rider: 'Andreas Leknessund', value: '87 pts' },
+          { rank: 5, rider: 'Jonas Vingegaard', value: '81 pts' },
+        ],
+      },
+      kom: {
+        kind: 'kom',
+        title: 'Mountains',
+        jerseyName: 'Maglia azzurra',
+        body: '#2d8fe0',
+        trim: '#1b5f9e',
+        entries: [
+          { rank: 1, rider: 'Giulio Ciccone', value: '277 pts' },
+          { rank: 2, rider: 'Jonas Vingegaard', value: '266 pts' },
+          { rank: 3, rider: 'Einer Rubio', value: '164 pts' },
+          { rank: 4, rider: 'Felix Gall', value: '124 pts' },
+          { rank: 5, rider: 'Jardi Christiaan van der Lee', value: '108 pts' },
+        ],
+      },
+      youth: {
+        kind: 'youth',
+        title: 'Young rider',
+        jerseyName: 'Maglia bianca',
+        body: '#ffffff',
+        trim: '#c4c8bd',
+        note: 'Only riders confirmed from published results are listed.',
+        entries: [
+          { rank: 1, rider: 'Afonso Eulálio', value: 'Leader' },
+          { rank: 2, rider: 'Davide Piganzoli', value: '+1:13' },
+        ],
+      },
+    },
   },
   {
     slug: 'tour-de-france',
@@ -179,6 +278,51 @@ export const races: Race[] = [
       { rank: 9, rider: 'Tom Pidcock', time: '+29:28' },
       { rank: 10, rider: 'Jordan Jegat', time: '+33:21' },
     ],
+    jerseys: {
+      points: {
+        kind: 'points',
+        title: 'Points',
+        jerseyName: 'Green jersey',
+        body: '#2e9d57',
+        trim: '#1d6b3a',
+        entries: [
+          { rank: 1, rider: 'Mads Pedersen', value: '559 pts' },
+          { rank: 2, rider: 'Jasper Philipsen', value: '475 pts' },
+          { rank: 3, rider: 'Biniam Girmay', value: '367 pts' },
+          { rank: 4, rider: 'Max Kanter', value: '289 pts' },
+          { rank: 5, rider: 'Olav Kooij', value: '246 pts' },
+        ],
+      },
+      kom: {
+        kind: 'kom',
+        title: 'Mountains',
+        jerseyName: 'Polka-dot jersey',
+        body: '#ffffff',
+        trim: '#c4c8bd',
+        dots: '#d9342b',
+        entries: [
+          { rank: 1, rider: 'Richard Carapaz', value: '156 pts' },
+          { rank: 2, rider: 'Tadej Pogačar', value: '100 pts' },
+          { rank: 3, rider: 'Valentin Paret-Peintre', value: '99 pts' },
+          { rank: 4, rider: 'Sepp Kuss', value: '55 pts' },
+          { rank: 5, rider: 'Remco Evenepoel', value: '50 pts' },
+        ],
+      },
+      youth: {
+        kind: 'youth',
+        title: 'Young rider',
+        jerseyName: 'White jersey',
+        body: '#ffffff',
+        trim: '#c4c8bd',
+        note: 'Only riders confirmed from published results are listed.',
+        entries: [
+          { rank: 1, rider: 'Isaac del Toro', value: 'Leader' },
+          { rank: 2, rider: 'Paul Seixas', value: '+2:14' },
+          { rank: 3, rider: 'Lenny Martinez', value: '+3:20' },
+          { rank: 4, rider: 'Juan Ayuso', value: '+8:06' },
+        ],
+      },
+    },
   },
   {
     slug: 'vuelta-a-espana',
@@ -210,6 +354,49 @@ export const races: Race[] = [
       { rank: 9, rider: 'Christián Rodríguez', time: '+11:59' },
       { rank: 10, rider: 'Harold Tejada', time: '+14:40' },
     ],
+    jerseys: {
+      points: {
+        kind: 'points',
+        title: 'Points',
+        jerseyName: 'Green jersey',
+        body: '#35a853',
+        trim: '#1f6e34',
+        entries: [
+          { rank: 1, rider: 'Wout van Aert', value: '326 pts' },
+          { rank: 2, rider: 'Matthew Brennan', value: '239 pts' },
+          { rank: 3, rider: 'Alessandro Romele', value: '171 pts' },
+          { rank: 4, rider: 'Bryan Coquard', value: '141 pts' },
+          { rank: 5, rider: 'Jordi Meeus', value: '116 pts' },
+        ],
+      },
+      kom: {
+        kind: 'kom',
+        title: 'Mountains',
+        jerseyName: 'Polka-dot jersey',
+        body: '#ffffff',
+        trim: '#c4c8bd',
+        dots: '#1d5fb8',
+        entries: [
+          { rank: 1, rider: 'Santiago Buitrago', value: '78 pts' },
+          { rank: 2, rider: 'Wout van Aert', value: '62 pts' },
+          { rank: 3, rider: 'Andreas Leknessund', value: '36 pts' },
+          { rank: 4, rider: 'Mikel Landa', value: '30 pts' },
+          { rank: 5, rider: 'Tobias Halland Johannessen', value: '28 pts' },
+        ],
+      },
+      youth: {
+        kind: 'youth',
+        title: 'Young rider',
+        jerseyName: 'White jersey',
+        body: '#ffffff',
+        trim: '#c4c8bd',
+        note: 'Only riders confirmed from published results are listed.',
+        entries: [
+          { rank: 1, rider: 'Oscar Onley', value: 'Leader' },
+          { rank: 2, rider: 'Jakob Omrzel', value: '+1:10' },
+        ],
+      },
+    },
   },
   {
     slug: 'strade-bianche',
