@@ -206,6 +206,19 @@
       </div>
     </section>
 
+    @if (race.jerseys; as jerseys) {
+      <section class="results-section" aria-labelledby="jerseys-heading">
+        <div class="results-intro">
+          <div>
+            <div class="section-kicker">THE JERSEYS</div>
+            <h2 id="jerseys-heading">Jersey winners</h2>
+          </div>
+          <p>Points · Mountains · Young rider · Top five</p>
+        </div>
+        <app-jersey-winners [jerseys]="jerseys" [results]="race.results" [idPrefix]="race.slug" />
+      </section>
+    }
+
     <aside class="race-winner">
       <div class="winner-mark" aria-hidden="true">01</div>
       <div>
