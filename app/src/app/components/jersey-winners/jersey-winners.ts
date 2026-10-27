@@ -20,7 +20,7 @@ interface JerseyTab {
 }
 
 const jerseyShape =
-  'M38 8 L12 24 L2 52 L24 60 L30 46 L30 100 Q60 108 90 100 L90 46 L96 60 L118 52 L108 24 L82 8 Q60 24 38 8 Z';
+  'M42 8 L21 24 L12 52 L30 60 L35 46 L35 100 Q60 108 85 100 L85 46 L90 60 L108 52 L99 24 L78 8 Q60 24 42 8 Z';
 
 @Component({
   selector: 'app-jersey-winners',
