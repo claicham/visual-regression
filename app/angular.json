@@ -86,7 +86,8 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "app:build",
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "statsJson": true
           }
         }
       }
