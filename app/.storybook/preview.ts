@@ -3,24 +3,32 @@ import {
   provideRouter,
   withComponentInputBinding,
   withInMemoryScrolling,
+  type Routes,
 } from '@angular/router';
-import { routes } from '../src/app/app.routes';
 import '../src/styles.scss';
+
+// Matches any URL so the initial navigation succeeds, without rendering anything.
+const noRoutes: Routes = [{ path: '**', children: [] }];
 
 const preview: Preview = {
   decorators: [
-    applicationConfig({
-      providers: [
-        provideRouter(
-          routes,
-          withComponentInputBinding(),
-          withInMemoryScrolling({
-            anchorScrolling: 'enabled',
-            scrollPositionRestoration: 'enabled',
-          }),
-        ),
-      ],
-    }),
+    // Stories get a catch-all router by default, so RouterLink works without
+    // importing the real routes (which pull every page into the preview and make
+    // TurboSnap re-snapshot all stories on almost any change). A story that needs
+    // real routing sets `parameters: { routes }`.
+    (storyFn, context) =>
+      applicationConfig({
+        providers: [
+          provideRouter(
+            (context.parameters['routes'] as Routes | undefined) ?? noRoutes,
+            withComponentInputBinding(),
+            withInMemoryScrolling({
+              anchorScrolling: 'enabled',
+              scrollPositionRestoration: 'enabled',
+            }),
+          ),
+        ],
+      })(storyFn, context),
   ],
   parameters: {
     controls: {
